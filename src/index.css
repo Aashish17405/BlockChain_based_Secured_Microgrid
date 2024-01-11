@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+/* base styles */
+* {
+  margin: 0;
+  font-family: "Quicksand";
+  color: #333;
+ }
+ 
+ .navbar {
+  padding: 20px;
+  display: flex;
+  max-width: 100px;
+  margin: 0 auto;
+  align-items: center;
+  border-bottom: 1px solid #f2f2f2;
+ }
+ 
+ .navbar .hm {
+  color: #f1356d;
+  font-weight: bold;
+  margin-left: -1350px;
+  text-decoration: none;
+ }
+ 
+ .navbar .links {
+  margin-left: 720px;
+ }
+ 
+ .navbar .cu,.ab{
+  padding-left: 30px;
+  text-decoration: none;
+  font-weight: bold;
+ }
+ .navbar .abc{
+  padding-left: 30px;
+  text-decoration: none;
+  border: none;
+  font-weight: bold;
+  font: inherit;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  background: none;
+ }
+ .navbar .abc:hover{
+  color: #f1356d;
+ }
+ .navbar a:hover {
+  color: #f1356d;
+ }
+ 
+ .content {
+  max-width: 600px;
+  margin:0 auto;
+  padding: 20px;
+  padding-top: 0;
+ }
+ 
+
+/*contact */
+
+.contact-form {
+  background-color: #dfdddd; /* light grey background */
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%; /* increased width by 30% */
+  margin: auto;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 70%;
+  padding: 10px;
+  margin-bottom: 2px; /* decreased space below each input field and textarea */
+  border: none;
+  background-color: white; /* white input fields */
+}
+
+.contact-form textarea{
+  padding-bottom: 100px;
+}
+
+.contact-form button {
+  background-color: #ff4f4f; /* red submit button */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
