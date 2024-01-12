@@ -2,15 +2,56 @@ from flask import Flask, request, jsonify
 from pymongo import MongoClient
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt
-from flask_jwt_extended import JWTManager, create_access_token
+from flask_jwt_extended import JWTManager, create_access_token,jwt_required, get_jwt_identity
 from datetime import datetime, timedelta
 import secrets,pytz
-from datetime import datetime, timedelta
+
 bcrypt = Bcrypt()
 app = Flask(__name__)
 CORS(app)
 
 
+from twilio.rest import Client
+import random
+account_sid = 'AC7aee436a54cac70e58bde33a0015bfc3'
+auth_token = 'fc2d67d6270513853d88d86419943df1'
+twilio_phone_number = '+16174407457'
+client = Client(account_sid, auth_token)
+otp=0
+def generate_otp():
+    otp=''.join([str(random.randint(0, 9)) for _ in range(6)])
+    return otp  # Generating a 6-digit OTP
+
+@app.route('/send_otp', methods=['POST'])
+def send_otp():
+    global otp
+    mobile_number = '+919381150341'
+    
+    if not mobile_number:
+        return jsonify({'message': 'Mobile number is required'}), 400
+
+    otp = generate_otp()
+   
+    # Send OTP using Twilio
+    try:
+        message = client.messages.create(
+            body=f'Your OTP is: {otp}',
+            from_=twilio_phone_number,
+            to=mobile_number
+        )
+        return jsonify({'message': 'OTP sent successfully'}), 200
+    except Exception as e:
+        return jsonify({'message': 'Failed to send OTP', 'error': str(e)}), 500
+
+# Endpoint to verify OTP
+@app.route('/verify_otp', methods=['POST'])
+def verify_otp():
+    user_otp = request.json.get('otp')
+    if user_otp == otp:
+        return jsonify({'message': 'OTP verified successfully'}), 200
+    else:
+        return jsonify({'message': 'Invalid OTP'}), 401
+    
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 secret_key = secrets.token_urlsafe(32)
@@ -65,36 +106,6 @@ def login():
     
     return jsonify({'message': 'Invalid username or password'}), 401
 
-def get_user_agent_info(user_agent):
-    if 'Edg' in user_agent:
-        return 'Microsoft Edge.'
-    elif 'Brave' in user_agent:
-        return 'Brave browser.'
-    elif 'Chrome' in user_agent:
-        return 'Google Chrome.'
-    elif 'Firefox' in user_agent:
-        return 'Mozilla Firefox.'
-    elif 'Safari' in user_agent and 'Chrome' not in user_agent:
-        return 'Safari.'
-    else:
-        return 'an unknown browser.'
-# app.run(debug=True) 
-
-from flask import Flask, request, jsonify
-from pymongo import MongoClient
-from flask_cors import CORS
-from flask_jwt_extended import JWTManager, jwt_required, get_jwt_identity
-from flask_bcrypt import Bcrypt
-from datetime import datetime
-
-bcrypt = Bcrypt(app)
-jwt = JWTManager(app)
-secret_key = "your_secret_key"  # Replace with your secret key
-app.config['JWT_SECRET_KEY'] = secret_key
-
-mclient = MongoClient('mongodb://localhost:27017/')
-db = mclient['PS']
-
 @app.route('/logout', methods=['POST'])
 @jwt_required()
 def logout():
@@ -117,5 +128,19 @@ def logout():
     else:
         return jsonify({'message': 'User not found.'}), 404
 
-if __name__ == '__main__':
-    app.run(debug=True)
+def get_user_agent_info(user_agent):
+    if 'Edg' in user_agent:
+        return 'Microsoft Edge.'
+    elif 'Brave' in user_agent:
+        return 'Brave browser.'
+    elif 'Chrome' in user_agent:
+        return 'Google Chrome.'
+    elif 'Firefox' in user_agent:
+        return 'Mozilla Firefox.'
+    elif 'Safari' in user_agent and 'Chrome' not in user_agent:
+        return 'Safari.'
+    else:
+        return 'an unknown browser.'
+
+
+app.run(debug=True)

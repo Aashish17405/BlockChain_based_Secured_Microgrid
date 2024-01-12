@@ -14,21 +14,19 @@ CORS(app)
 from twilio.rest import Client
 import random
 account_sid = 'AC7aee436a54cac70e58bde33a0015bfc3'
-auth_token = 'b7f91df0c5d24bfff3f9976551c32a8d'
+auth_token = 'fc2d67d6270513853d88d86419943df1'
 twilio_phone_number = '+16174407457'
 client = Client(account_sid, auth_token)
 otp=0
-# Generate OTP function
 def generate_otp():
     otp=''.join([str(random.randint(0, 9)) for _ in range(6)])
     return otp  # Generating a 6-digit OTP
 
-# Endpoint to send OTP to a mobile number
-@app.route('/otp', methods=['POST'])
+@app.route('/send_otp', methods=['POST'])
 def send_otp():
     global otp
-    mobile_number = request.json.get('mobile_number')
-    print(f"Received mobile number: {mobile_number}")
+    mobile_number = '+919381150341'
+    
     if not mobile_number:
         return jsonify({'message': 'Mobile number is required'}), 400
 
@@ -41,8 +39,7 @@ def send_otp():
             from_=twilio_phone_number,
             to=mobile_number
         )
-        print(message.sid) 
-        return jsonify({'message': 'OTP sent successfully', 'otp': otp}), 200
+        return jsonify({'message': 'OTP sent successfully'}), 200
     except Exception as e:
         return jsonify({'message': 'Failed to send OTP', 'error': str(e)}), 500
 
@@ -221,148 +218,148 @@ def add_time():
 
 
 
-from web3 import Web3
-import json
-from web3.middleware import geth_poa_middleware
+# from web3 import Web3
+# import json
+# from web3.middleware import geth_poa_middleware
 
-# Create an instance of the Web3 class
-w3 = Web3(Web3.HTTPProvider('http://127.0.0.1:8545'))
-# Add the Geth PoA middleware
-w3.middleware_onion.inject(geth_poa_middleware, layer=0)
-# Set the default account
-w3.eth.default_account = "0xe630726A22167a2bE6Bc87beea5a493B91897093"
-abi = json.loads('[{"inputs":[{"internalType":"string","name":"element","type":"string"}],"name":"battery","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"battery_data","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"element","type":"string"}],"name":"genset","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"genset_data","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"element","type":"string"}],"name":"grid","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"grid_data","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"element","type":"string"}],"name":"load","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"load_data","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"element","type":"string"}],"name":"renewable","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"renewable_data","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"show_battery","outputs":[{"internalType":"string[]","name":"","type":"string[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"show_genset","outputs":[{"internalType":"string[]","name":"","type":"string[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"show_grid","outputs":[{"internalType":"string[]","name":"","type":"string[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"show_load","outputs":[{"internalType":"string[]","name":"","type":"string[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"show_renewable","outputs":[{"internalType":"string[]","name":"","type":"string[]"}],"stateMutability":"view","type":"function"}]')
-address = Web3.to_checksum_address("0x0754Cdfb3DcAE9E1d58bD2373833f65332075348")
-contract = w3.eth.contract(address=address,abi=abi)
-
-
-from flask import send_file
-import matplotlib.pyplot as plt
-import io
+# # Create an instance of the Web3 class
+# w3 = Web3(Web3.HTTPProvider('http://127.0.0.1:8545'))
+# # Add the Geth PoA middleware
+# w3.middleware_onion.inject(geth_poa_middleware, layer=0)
+# # Set the default account
+# w3.eth.default_account = "0xe630726A22167a2bE6Bc87beea5a493B91897093"
+# abi = json.loads('[{"inputs":[{"internalType":"string","name":"element","type":"string"}],"name":"battery","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"battery_data","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"element","type":"string"}],"name":"genset","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"genset_data","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"element","type":"string"}],"name":"grid","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"grid_data","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"element","type":"string"}],"name":"load","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"load_data","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"element","type":"string"}],"name":"renewable","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"renewable_data","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"show_battery","outputs":[{"internalType":"string[]","name":"","type":"string[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"show_genset","outputs":[{"internalType":"string[]","name":"","type":"string[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"show_grid","outputs":[{"internalType":"string[]","name":"","type":"string[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"show_load","outputs":[{"internalType":"string[]","name":"","type":"string[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"show_renewable","outputs":[{"internalType":"string[]","name":"","type":"string[]"}],"stateMutability":"view","type":"function"}]')
+# address = Web3.to_checksum_address("0x0754Cdfb3DcAE9E1d58bD2373833f65332075348")
+# contract = w3.eth.contract(address=address,abi=abi)
 
 
-@app.route('/generate_bar_graph')
-def generate_bar_graph():
-    call=contract.functions.show_load().call()
-    for i in range(len(call)):
-        call[i]=int(call[i])
-    # print(call)
-    time_array=call
-    start = len(time_array) - (24 * 16)
-    if start < 0:
-        start = 0
+# from flask import send_file
+# import matplotlib.pyplot as plt
+# import io
 
-    day_wise_load = []
-    s = start
-    for i in range(start, len(time_array)):
-        if (i - start) % 24 == 0 and i != start:
-            daily_sum = sum(time_array[s:i])
-            day_wise_load.append(daily_sum)
-            s = i
+
+# @app.route('/generate_bar_graph')
+# def generate_bar_graph():
+#     call=contract.functions.show_load().call()
+#     for i in range(len(call)):
+#         call[i]=int(call[i])
+#     # print(call)
+#     time_array=call
+#     start = len(time_array) - (24 * 16)
+#     if start < 0:
+#         start = 0
+
+#     day_wise_load = []
+#     s = start
+#     for i in range(start, len(time_array)):
+#         if (i - start) % 24 == 0 and i != start:
+#             daily_sum = sum(time_array[s:i])
+#             day_wise_load.append(daily_sum)
+#             s = i
     
-    x_labels = list(range(1, len(day_wise_load) + 1))
-    plt.xlabel('Days')
-    plt.ylabel('Load')
-    plt.ylim(5000,9000)
-    for i, v in enumerate(day_wise_load):
-        plt.text(i + 1, v + 100, str(v), ha='center', va='bottom')
-    plt.grid(axis='y', linestyle='--', alpha=0.7)
-    plt.xticks(range(1, len(day_wise_load) + 1), x_labels)
-    plt.gca().spines['right'].set_visible(False)
-    plt.gca().spines['top'].set_visible(False)
-    bar_width = 0.6
-    # plt.figure(figsize=(15, 3))
-    plt.bar(range(1,len(day_wise_load)+1), day_wise_load,width=bar_width)
+#     x_labels = list(range(1, len(day_wise_load) + 1))
+#     plt.xlabel('Days')
+#     plt.ylabel('Load')
+#     plt.ylim(5000,9000)
+#     for i, v in enumerate(day_wise_load):
+#         plt.text(i + 1, v + 100, str(v), ha='center', va='bottom')
+#     plt.grid(axis='y', linestyle='--', alpha=0.7)
+#     plt.xticks(range(1, len(day_wise_load) + 1), x_labels)
+#     plt.gca().spines['right'].set_visible(False)
+#     plt.gca().spines['top'].set_visible(False)
+#     bar_width = 0.6
+#     # plt.figure(figsize=(15, 3))
+#     plt.bar(range(1,len(day_wise_load)+1), day_wise_load,width=bar_width)
     
-    buffer = io.BytesIO()
-    plt.savefig(buffer, format='png')
-    buffer.seek(0)
-    plt.close()
-    return send_file(buffer, mimetype='image/png')
+#     buffer = io.BytesIO()
+#     plt.savefig(buffer, format='png')
+#     buffer.seek(0)
+#     plt.close()
+#     return send_file(buffer, mimetype='image/png')
 
 
-from datetime import datetime, timedelta
-@app.route('/get_table_data')
-def get_table_data():
-    headers = ['Days'] + [f'{i-1}:00 to {i}:00' for i in range(1, 25)] + ['Total Load']
-    table_data = [headers]
-    hour_data = contract.functions.show_load().call()
-    start = len(hour_data) - (24 * 15)
-    if start < 0:
-        start = 0
-    current_date = datetime.now()
-    days_of_week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+# from datetime import datetime, timedelta
+# @app.route('/get_table_data')
+# def get_table_data():
+#     headers = ['Days'] + [f'{i-1}:00 to {i}:00' for i in range(1, 25)] + ['Total Load']
+#     table_data = [headers]
+#     hour_data = contract.functions.show_load().call()
+#     start = len(hour_data) - (24 * 15)
+#     if start < 0:
+#         start = 0
+#     current_date = datetime.now()
+#     days_of_week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
-    for day in range(start // 24 + 1, start // 24 + 16):
-        start_idx = (day - 1) * 24
-        end_idx = day * 24
-        row = [f'{days_of_week[current_date.weekday()]}'] + [int(value) for value in hour_data[start_idx:end_idx]]
-        row_sum = sum(row[1:])
-        row.append(row_sum)
-        table_data.append(row)
-        current_date -= timedelta(days=1)
+#     for day in range(start // 24 + 1, start // 24 + 16):
+#         start_idx = (day - 1) * 24
+#         end_idx = day * 24
+#         row = [f'{days_of_week[current_date.weekday()]}'] + [int(value) for value in hour_data[start_idx:end_idx]]
+#         row_sum = sum(row[1:])
+#         row.append(row_sum)
+#         table_data.append(row)
+#         current_date -= timedelta(days=1)
 
-    return jsonify({'data': table_data})
-
-
-def generate_plot(x_data, y_data):
-    plt.figure() 
-    plt.plot(x_data, y_data)
-    plt.xlabel('X-axis')
-    plt.ylabel('Y-axis')
-
-    buffer = io.BytesIO()
-    plt.savefig(buffer, format='png')
-    buffer.seek(0)
-    plt.close() 
-    return send_file(buffer, mimetype='image/png')
-
-@app.route('/batterys')
-def generate_battery_plot():
-    a=contract.functions.show_battery().call()
-    time = request.args.get('time')
-    if time:
-        return generate_plot(range(0,len(a[0:int(time)])), a[0:int(time)])
-    return jsonify({'error': 'Invalid time parameter'}), 400
-
-@app.route('/generators')
-def generate_genset_plot():
-    a=contract.functions.show_genset().call()
-    time = request.args.get('time')
-    if time:
-        return generate_plot(range(0,len(a[0:int(time)])), a[0:int(time)])
-    return jsonify({'error': 'Invalid time parameter'}), 400
+#     return jsonify({'data': table_data})
 
 
-@app.route('/renewable_source')
-def generate_renewable_plot():
-    a=contract.functions.show_renewable().call()
-    time = request.args.get('time')
-    result = []
-    for item in a:
-        start, end = item.split('-')
-        result.append(start) 
+# def generate_plot(x_data, y_data):
+#     plt.figure() 
+#     plt.plot(x_data, y_data)
+#     plt.xlabel('X-axis')
+#     plt.ylabel('Y-axis')
 
-    result = list(map(int, result))
-    if time:
-        return generate_plot(range(0,len(result[0:int(time)])), result[0:int(time)])
-    return jsonify({'error': 'Invalid time parameter'}), 400
+#     buffer = io.BytesIO()
+#     plt.savefig(buffer, format='png')
+#     buffer.seek(0)
+#     plt.close() 
+#     return send_file(buffer, mimetype='image/png')
 
-@app.route('/load')
-def generate_load_plot():
-    a=contract.functions.show_load().call()
-    time = request.args.get('time')
-    if time:
-        return generate_plot(range(0,len(a[0:int(time)])), a[0:int(time)])
-    return jsonify({'error': 'Invalid time parameter'}), 400
+# @app.route('/batterys')
+# def generate_battery_plot():
+#     a=contract.functions.show_battery().call()
+#     time = request.args.get('time')
+#     if time:
+#         return generate_plot(range(0,len(a[0:int(time)])), a[0:int(time)])
+#     return jsonify({'error': 'Invalid time parameter'}), 400
 
-@app.route('/grid')
-def generate_grid_plot():
-    a=contract.functions.show_grid().call()
-    time = request.args.get('time')
-    if time:
-        return generate_plot(range(0,len(a[0:int(time)])), a[0:int(time)])
-    return jsonify({'error': 'Invalid time parameter'}), 400
+# @app.route('/generators')
+# def generate_genset_plot():
+#     a=contract.functions.show_genset().call()
+#     time = request.args.get('time')
+#     if time:
+#         return generate_plot(range(0,len(a[0:int(time)])), a[0:int(time)])
+#     return jsonify({'error': 'Invalid time parameter'}), 400
+
+
+# @app.route('/renewable_source')
+# def generate_renewable_plot():
+#     a=contract.functions.show_renewable().call()
+#     time = request.args.get('time')
+#     result = []
+#     for item in a:
+#         start, end = item.split('-')
+#         result.append(start) 
+
+#     result = list(map(int, result))
+#     if time:
+#         return generate_plot(range(0,len(result[0:int(time)])), result[0:int(time)])
+#     return jsonify({'error': 'Invalid time parameter'}), 400
+
+# @app.route('/load')
+# def generate_load_plot():
+#     a=contract.functions.show_load().call()
+#     time = request.args.get('time')
+#     if time:
+#         return generate_plot(range(0,len(a[0:int(time)])), a[0:int(time)])
+#     return jsonify({'error': 'Invalid time parameter'}), 400
+
+# @app.route('/grid')
+# def generate_grid_plot():
+#     a=contract.functions.show_grid().call()
+#     time = request.args.get('time')
+#     if time:
+#         return generate_plot(range(0,len(a[0:int(time)])), a[0:int(time)])
+#     return jsonify({'error': 'Invalid time parameter'}), 400
 
 if __name__ == "__main__":
     app.run(debug=True)
