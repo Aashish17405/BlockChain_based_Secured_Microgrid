@@ -14,43 +14,47 @@ CORS(app)
 from twilio.rest import Client
 import random
 account_sid = 'AC7aee436a54cac70e58bde33a0015bfc3'
-auth_token = 'fc2d67d6270513853d88d86419943df1'
+auth_token = 'ab199ade2ab8862ad6ba237655456088'
 twilio_phone_number = '+16174407457'
 client = Client(account_sid, auth_token)
 otp=0
 def generate_otp():
-    otp=''.join([str(random.randint(0, 9)) for _ in range(6)])
+    otp = ''.join([str(random.randint(0, 9)) for _ in range(6)])
     return otp  # Generating a 6-digit OTP
 
+# Global variable to store OTP
+otp = None
+
+# Endpoint to send OTP
 @app.route('/send_otp', methods=['POST'])
 def send_otp():
     global otp
-    mobile_number = '+919381150341'
-    
-    if not mobile_number:
-        return jsonify({'message': 'Mobile number is required'}), 400
-
     otp = generate_otp()
-   
-    # Send OTP using Twilio
+    print(f'Generated OTP: {otp}')
     try:
         message = client.messages.create(
             body=f'Your OTP is: {otp}',
             from_=twilio_phone_number,
-            to=mobile_number
+            to='+919381150341'  # Hardcoded mobile number
         )
+        print(f'Message sent successfully: {message}')
         return jsonify({'message': 'OTP sent successfully'}), 200
     except Exception as e:
-        return jsonify({'message': 'Failed to send OTP', 'error': str(e)}), 500
+        error_message = f'Failed to send OTP. Error: {str(e)}'
+        app.logger.error(error_message)
+        print(f'Error sending OTP: {error_message}')
+        return jsonify({'message': error_message}), 500
 
 # Endpoint to verify OTP
 @app.route('/verify_otp', methods=['POST'])
 def verify_otp():
+    global otp
     user_otp = request.json.get('otp')
     if user_otp == otp:
         return jsonify({'message': 'OTP verified successfully'}), 200
     else:
         return jsonify({'message': 'Invalid OTP'}), 401
+
     
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
