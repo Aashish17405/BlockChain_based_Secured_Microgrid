@@ -174,7 +174,7 @@ const Login = ({ setIsLoggedIn }) => {
         otp,
       });
       if (response.status === 200) {
-        toast.success('OTP verification successful! Redirecting...', { autoClose: 2000 });
+        toast.success('OTP verification successful! Redirecting...', { autoClose: 1000 });
         setIsLoggedIn(true);
         setFailedAttempts(0);
         localStorage.setItem('access_token', accessToken);
@@ -197,25 +197,26 @@ const Login = ({ setIsLoggedIn }) => {
   };
 
   return (
+    
     <div className="login-box">
       <h2 className="log">Login</h2>
       <form onSubmit={handleLogin}>
         <div>
           <label htmlFor="username" className="form-label">
-            Username:
+            Username
           </label>
           <input type="text" id="username" name="username" className="form-input" autoComplete="off" value={username} onChange={(e) => setUsername(e.target.value)}/>
         </div>
         <div>
           <label htmlFor="password" className="form-label">
-            Password:
+            Password
           </label>
           <input type="password" id="password" name="password" className="form-input" autoComplete="off" value={password} onChange={(e) => setPassword(e.target.value)}/>
         </div>
         {otpSent && (
           <div>
             <label htmlFor="otp" className="form-label">
-              Enter OTP:
+              Enter OTP
             </label>
             <input type="text" id="otp" name="otp" className="form-input" autoComplete="off" value={otp} onChange={(e) => setOtp(e.target.value)}/>
           </div>

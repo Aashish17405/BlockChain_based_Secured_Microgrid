@@ -52,23 +52,24 @@ const ContactUs = () => {
   };
 
   return (
+    <div className='content'>
     <div className="contact-form">
       <h2>Fill the form</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username" className="contact-form label">Username:</label>
+          <label htmlFor="username" className="contact-form label">Username</label>
           <input type="text" id="username" name="username" autoComplete='off' className="contact-form input" onChange={handleInputChange} />
         </div>
         <div>
-          <label htmlFor="position" className="contact-form label">Position:</label>
+          <label htmlFor="position" className="contact-form label">Position</label>
           <input type="text" id="position" name="position" autoComplete='off' className="contact-form input" onChange={handleInputChange} />
         </div>
         <div>
-          <label htmlFor="aadhar" className="contact-form label">Aadhar ID:</label>
+          <label htmlFor="aadhar" className="contact-form label">Aadhar ID</label>
           <input type="text" id="aadhar" name="aadhar" autoComplete='off' className={`contact-form input ${aadharError ? 'error' : ''}`} maxLength={12} onChange={handleInputChange}/>
         </div>
         <div className="feed">
-          <label htmlFor="feedback" className="contact-form label">Feedback:</label>
+          <label htmlFor="feedback" className="contact-form label">Feedback</label>
           <textarea id="feedback" name="feedback" autoComplete='off' className="contact-form textarea" onChange={handleInputChange}></textarea>
         </div>
         <button type="submit" className="contact-form button">Submit</button>
@@ -78,6 +79,7 @@ const ContactUs = () => {
           <ClipLoader color="#FF4F4F" />
         </div>
       )}
+    </div>
     </div>
   );
 };

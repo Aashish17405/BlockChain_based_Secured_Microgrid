@@ -10,7 +10,6 @@ import About from './About';
 import Footer from './Footer';
 import Middleman from './Middleman';
 import Consumer from './Consumer';
-import OTP from './OTP';
 import PrivateRoutes from './PrivateRoute';
 import { AuthProvider } from './Authcontext';
 import { Flip, ToastContainer } from 'react-toastify';
@@ -31,12 +30,10 @@ return (
       <Router>
         <ProgressBar/>
         <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-        <div className='content'>
           <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/ContactUs' element={<ContactUs />} />
             <Route path='/About' element={<About />} />
-            <Route path='/otp' element={<OTP/>}/>
             <Route element={<Login setIsLoggedIn={setIsLoggedIn} />} path="/login" exact />
             <Route element={<PrivateRoutes />}>
               <Route element={checkRole('toplevel') ? <Organization /> : <Navigate to="/login" />} path="/toplevel" exact />
@@ -47,7 +44,6 @@ return (
 
             <Route path='*' element={<Error/>}></Route>
           </Routes>
-        </div>
         <Footer></Footer>
       </Router>
       <ToastContainer

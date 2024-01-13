@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 .video-container {
   margin-top: 80px;
   width: 110%;
@@ -37,14 +37,13 @@
   
   .box-1 {
     display: flex;
- justify-content: center;
-
- margin-left: -100px;
- 
+    justify-content: center;
+    margin-left: -100px;
     width: 800px;
     height: 160px;           
     border: 3px solid #333;
     padding: 10px;
+    padding-bottom: 200px;
     background: #FF4F4F;
     border-radius: 20px;
     color: white; 
@@ -118,14 +117,14 @@
   #full{
     border-color: #fc6a6a;
     margin-top: 100px;
-      content: "";
-      background: linear-gradient(to right, #1C1F2A, #1C1F2A);
-      
-       position:absolute;
-      height:fit-content;
-      width: 100%;
-      left: 0vw;
-       z-index: -1;   
+    content: "";
+    background: linear-gradient(to right, #1C1F2A, #1C1F2A);
+    
+    position:absolute;
+    height:fit-content;
+    width: 100%;
+    left: 0vw;
+    /* z-index: -1;    */
   }
   
   #line {
@@ -221,13 +220,15 @@
 
  
   .login-box {
-    width: 400px;
+    width: 400px; 
     padding: 16px;
     background-color: #f1f1f1;
     margin: 0 auto;
-    margin-top: 100px;
-    border-radius: 4px;
+    margin-top: 80px;
+    border-radius: 10px;
     box-shadow: 0px 0px 10px 0px #ffffff26;
+    padding-top: 30px;
+    padding-bottom: 30px;
    }
    
    .login-box h2 {
@@ -245,7 +246,7 @@
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    border-radius: 4px;
+    border-radius: 8px;
     border: 1px solid #afafaf;
    }
    
@@ -260,7 +261,7 @@
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
    }
    
@@ -356,7 +357,7 @@
  }
   /* css of middleman */
   .buttonboxo{
-    margin-top: 140px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -440,6 +441,6 @@
 
  /* Spinner Container */
  .spinner-container{
-  padding-top:10px;
+  padding-top:15px;
   padding-left: 10px;
  }

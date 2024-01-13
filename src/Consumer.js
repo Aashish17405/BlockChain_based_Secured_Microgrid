@@ -50,38 +50,43 @@ function Consumer() {
 
   return (
     <div>
-      <h1>Graph for your house Load</h1>
+      <h1>Graph for your house Load</h1><br></br>
       <div>
-        {billAmount !== null && <p>Bill Amount for last hour: ₹{billAmount}</p>}
+        {billAmount !== null && <h5>Bill Amount for last hour: ₹{billAmount}</h5>}
+        </div>
+      <div>
         {graphImage && (<img src={graphImage} alt="Bar Graph" />)}
-      </div>
+        </div>
+        <br></br>  
       <div>
         <h1>Last 15 days Load Info</h1>
-        <TableContainer component={Paper} style={{ maxHeight: 'none', overflow: 'auto' }}>
-          <Table aria-label="your table">
-            <TableHead>
-              <TableRow>
-                {tableData.length > 0 &&
-                  tableData[0].map((header, index) => (
-                    <TableCell key={`header-${index}`} align="center">
-                      {header}
-                    </TableCell>
-                  ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {tableData.slice(1).map((row, rowIndex) => (
-                <TableRow key={`row-${rowIndex}`}>
-                  {row.map((cellData, colIndex) => (
-                    <TableCell key={`cell-${rowIndex}-${colIndex}`} align="center">
-                      {cellData}
-                    </TableCell>
-                  ))}
+        <div class="table-responsive">
+          <TableContainer component={Paper} style={{ maxHeight: 'none', overflow: 'auto' }}>
+            <Table aria-label="your table" class="table table-bordered">
+              <TableHead>
+                <TableRow>
+                  {tableData.length > 0 &&
+                    tableData[0].map((header, index) => (
+                      <TableCell class="table-light" key={`header-${index}`} align="center">
+                        {header}
+                      </TableCell>
+                    ))}
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+              </TableHead>
+              <TableBody>
+                {tableData.slice(1).map((row, rowIndex) => (
+                  <TableRow key={`row-${rowIndex}`}>
+                    {row.map((cellData, colIndex) => (
+                      <TableCell key={`cell-${rowIndex}-${colIndex}`} align="center">
+                        {cellData}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
       </div>
     </div>
   );

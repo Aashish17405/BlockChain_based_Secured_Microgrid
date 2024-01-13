@@ -4,6 +4,7 @@ const Home = () => {
     
     const videoUrl = 'https://www.youtube.com/embed/ATqA6rFWuiQ';
     return ( 
+        <div className='content'>
         <div className="home">
             <h1 style={{margin:"30px", paddingLeft:"41px"}}>Welcome to the Microgrid </h1>
             <div>
@@ -24,7 +25,7 @@ const Home = () => {
                         "We owe it to ourselves and to the next generation to conserve the environment so that we can bequeath our children a sustainable world that benefits all." - A. P. J. Abdul Kalam
                     </p>
                     <p className='quote'>
-                        "Don't be reckless with electricity; use it wisely, conserve it for a brighter future." - Chetan Bhagat
+                        "Don't be reckless with electricity; use it wisely, conserve it for a brighter future." <br></br>- Chetan Bhagat
                     </p>
                 </div>
             </div>
@@ -101,6 +102,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 } 
