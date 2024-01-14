@@ -30,11 +30,11 @@ function Solar() {
 
   return (
     <div>
-      <h1>Graph for Battery's SOC</h1>
+      <h1 style={{paddingLeft:'270px'}}>Battery Graph</h1>
       
       <div>
-        <label htmlFor="timeOptions">Select Time:</label>
-        <select id="timeOptions" value={selectedOption} onChange={handleSelectChange}>
+        <label htmlFor="timeOptions" style={{paddingLeft:'270px'}}>Select Time:</label>
+        <select id="timeOptions" value={selectedOption} onChange={handleSelectChange} style={{marginLeft:'270px'}}>
           <option value="">Select</option>
           <option value="24">24 Hours</option>
           <option value="48">48 Hours</option>

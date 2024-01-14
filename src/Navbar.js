@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import lg from './lpg.png';
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('access_token') !== null);
@@ -56,7 +57,7 @@ const Navbar = () => {
   return (
     <div className='navbar'>
       <div className='links'>
-        <Link to="/" className='hm'>GRID SMART TECH</Link>
+        <Link to="/" className='hm'><img src={lg} style={{ width: '60px', height: '50px' }} alt="Grid smart Tech"/>GRID SMART TECH</Link>
         <Link to="/ContactUs" className='cu'>Contact Us</Link>
         <Link to="/About" className='ab'>About</Link>
         {isLoggedIn ? (

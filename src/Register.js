@@ -60,43 +60,45 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="register-container">
-    <h1 className="register-title">Register</h1>
-    <form onSubmit={handleSubmit} className="register-form">
-     <div className="reginput-group">
-       <label htmlFor="username" className="reginput-label">Username:</label>
-       <input type="text" id="username" name="username" autoComplete='off' value={formData.username} onChange={handleInputChange} className="reginput-field"/>
-     </div>
-     <div className="reginput-group">
-       <label htmlFor="password" className="reginput-label">Password:</label>
-       <input type="password" id="password" name="password" autoComplete='off' value={formData.password} onChange={handleInputChange} className="reginput-field"/>
-     </div>
-     <div className="reginput-group">
-       <label htmlFor="confirmPassword" className="reginput-label">Confirm Password:</label>
-       <input type="password" id="confirmPassword" name="confirmPassword" autoComplete='off' value={formData.confirmPassword} onChange={handleInputChange} className="reginput-field"/>
-     </div>
-     <div >
-       <label ><h3 className='reguser'>User Type</h3></label>
-       <div className="regradio-group">
-         <label>
-           <input type="radio" name="userType" value="consumers" checked={formData.userType === 'consumers'} onChange={handleRadioChange} className="regradio-input"/> Consumers
-         </label>
-         <label>
-           <input type="radio" name="userType" value="toplevel" checked={formData.userType === 'toplevel'} onChange={handleRadioChange} className="regradio-input"/> Toplevel
-         </label>
-         <label>
-           <input type="radio" name="userType" value="middleman" checked={formData.userType === 'middleman'} onChange={handleRadioChange} className="regradio-input"/> Middleman
-         </label>
-       </div>
-     </div>
-     <button type="submit" className="register-button">Register</button>
-    </form>
-    {loading && (
-        <div className="spinner-container">
-          <ClipLoader color="#FF4F4F" />
+    <div className='content'>
+      <div className="register-container">
+      <h1 className="register-title">Register</h1>
+      <form onSubmit={handleSubmit} className="register-form">
+      <div className="reginput-group">
+        <label htmlFor="username" className="reginput-label">Username</label><br></br>
+        <input type="text" id="username" name="username" autoComplete='off' value={formData.username} onChange={handleInputChange} className="reginput-field"/>
+      </div>
+      <div className="reginput-group">
+        <label htmlFor="password" className="reginput-label">Password</label><br></br>
+        <input type="password" id="password" name="password" autoComplete='off' value={formData.password} onChange={handleInputChange} className="reginput-field"/>
+      </div>
+      <div className="reginput-group">
+        <label htmlFor="confirmPassword" className="reginput-label">Confirm Password</label><br></br>
+        <input type="password" id="confirmPassword" name="confirmPassword" autoComplete='off' value={formData.confirmPassword} onChange={handleInputChange} className="reginput-field"/>
+      </div>
+      <div >
+        <label ><h3 className='reguser'>User Type</h3></label>
+        <div className="regradio-group">
+          <label>
+            <input type="radio" name="userType" value="consumers" checked={formData.userType === 'consumers'} onChange={handleRadioChange} className="regradio-input"/> Consumers
+          </label>
+          <label>
+            <input type="radio" name="userType" value="toplevel" checked={formData.userType === 'toplevel'} onChange={handleRadioChange} className="regradio-input"/> Toplevel
+          </label>
+          <label>
+            <input type="radio" name="userType" value="middleman" checked={formData.userType === 'middleman'} onChange={handleRadioChange} className="regradio-input"/> Middleman
+          </label>
         </div>
-      )}
-   </div>
+      </div>
+      <button type="submit" className="register-button">Register</button>
+      </form>
+      {loading && (
+          <div className="spinner-container">
+            <ClipLoader color="#FF4F4F" />
+          </div>
+        )}
+    </div>
+    </div>
   );
 };
 

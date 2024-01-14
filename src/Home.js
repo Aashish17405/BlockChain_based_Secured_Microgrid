@@ -6,7 +6,7 @@ const Home = () => {
     return ( 
         <div className='content'>
         <div className="home">
-            <h1 style={{margin:"30px", paddingLeft:"41px"}}>Welcome to the Microgrid </h1>
+            <h1 style={{margin:"15px", paddingLeft:"41px"}}>Welcome to the Microgrid </h1>
             <div>
                 <div className="box-1">
                     <p className="matter">

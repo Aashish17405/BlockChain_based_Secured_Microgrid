@@ -8,12 +8,12 @@
  }
  
  .navbar {
-  padding: 20px;
+  padding: 5px;
   display: flex;
   max-width: 100px;
   margin: 0 auto;
   align-items: center;
-  border-bottom: 1px solid #f2f2f2;
+  /* border-bottom: 1px solid #f2f2f2; */
  }
  
  .navbar .hm {
@@ -67,10 +67,12 @@
   border-radius: 10px;
   width: 90%; /* increased width by 30% */
   margin: auto;
+  margin-left:50px ;
 }
 
 .contact-form label {
   display: block;
+  margin-left: auto;
   /* margin-bottom: 4px; */
 }
 
@@ -80,6 +82,7 @@
   padding: 8px;
   /* margin-bottom: 2px; decreased space below each input field and textarea */
   border: none;
+  margin-left: auto;
   background-color: white; /* white input fields */
 }
 
@@ -98,4 +101,12 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+/* footer */
+.footer {
+  padding: 2px;
+  padding-top: 15px;
+  text-align: center;
+  margin-top: auto;
 }

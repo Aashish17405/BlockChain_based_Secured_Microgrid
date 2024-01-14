@@ -37,7 +37,7 @@ def send_otp():
             from_=twilio_phone_number,
             to='+919381150341'  # Hardcoded mobile number
         )
-        print(f'Message sent successfully: {message}')
+        # print(f'Message sent successfully: {message}')
         return jsonify({'message': 'OTP sent successfully'}), 200
     except Exception as e:
         error_message = f'Failed to send OTP. Error: {str(e)}'
@@ -239,6 +239,8 @@ contract = w3.eth.contract(address=address,abi=abi)
 from flask import send_file
 import matplotlib.pyplot as plt
 import io
+import matplotlib
+matplotlib.use('Agg')
 
 
 @app.route('/generate_bar_graph')
@@ -263,7 +265,7 @@ def generate_bar_graph():
     x_labels = list(range(1, len(day_wise_load) + 1))
     plt.xlabel('Days')
     plt.ylabel('Load')
-    plt.ylim(4000,15000)
+    plt.ylim(4000,8000)
     for i, v in enumerate(day_wise_load):
         plt.text(i + 1, v, str(v), ha='center', va='bottom')
     plt.grid(axis='y', linestyle='--', alpha=0.7)

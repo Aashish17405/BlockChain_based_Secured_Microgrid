@@ -1,120 +1,167 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { toast } from 'react-toastify';
-import Solar from './Solar'; // Import the Solar component
-import Load from './Load';
-import Grid from './Grid';
-import Battery from './Battery';
-import Genset from './Generator';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import Solar from "./Solar"; // Import the Solar component
+import Load from "./Load";
+import Grid from "./Grid";
+import Battery from "./Battery";
+import Genset from "./Generator";
+import { TbSolarElectricity } from "react-icons/tb";
+import { FiBatteryCharging } from "react-icons/fi";
+import { AiFillThunderbolt } from "react-icons/ai";
+import { GiPowerGenerator } from "react-icons/gi";
+import { CgProfile } from "react-icons/cg";
+import { FaPlus } from "react-icons/fa";
+import { FaHouseChimneyCrack } from "react-icons/fa6";
+import { FaCircleChevronDown } from "react-icons/fa6";
 
 const Organization = () => {
-    const [inputValue, setInputValue] = useState('');
-    const [isClicked, setIsClicked] = useState(false);
-    const [cost, setCost] = useState(null); // State to store the cost value
-    const [showSolarPage, setShowSolarPage] = useState(false); // State to toggle showing Solar page
-    const [showBatteryPage, setShowBatteryPage] = useState(false);
-    const [showGridPage, setShowGridPage] = useState(false);
-    const [showLoadPage, setShowLoadPage] = useState(false);
-    const [showGensetPage, setShowGensetPage] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
-    const handleInputChange = (e) => {
-        setInputValue(e.target.value);
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setShowButton(document.body.scrollHeight > window.innerHeight);
+  //   };
+  //   handleResize();
+  //   window.addEventListener("resize", handleResize);
 
-    const handleSubmit = async () => {
-        setIsClicked(!isClicked);
-    
-        // Check if the input value is empty
-        if (!inputValue) {
-            // Show error toast for empty input field
-            toast.error("Please enter a value for Genset cost");
-            return; // Return to exit the function
-        }
-    
-        if (isNaN(inputValue) || parseInt(inputValue) > 4) {
-            // Show error toast if the input is not a number or greater than 4
-            toast.error("Genset cost can't exceed 5rs");
-            setInputValue(''); // Clear input field
-        } else {
-            try {
-                await axios.post('http://localhost:5000/organization', { data: inputValue });
-                // Handle success (optional)
-                setInputValue('');
-                console.log('List updated successfully');
-                toast.success('Genset cost updated successfully!');
-            } catch (error) {
-                // Handle error (optional)
-                setInputValue('');
-                console.error('Error updating list:', error);
-                toast.error('Error updating genset cost');
-            }
-        }
-    };
-    
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
-    const handleSolarButtonClick = () => {
-        setShowSolarPage(prevState => !prevState); // Toggle the state for showing/hiding Solar page
-    };
-    const handleLoadButtonClick = () => {
-        setShowLoadPage(prevState => !prevState); // Set the state to show Solar page content
-    };
-    const handleBatteryButtonClick = () => {
-        setShowBatteryPage(prevState => !prevState); // Set the state to show Solar page content
-    };
-    const handleGridButtonClick = () => {
-        setShowGridPage(prevState => !prevState); // Set the state to show Solar page content
-    };
-    const handleGensetButtonClick = () => {
-        setShowGensetPage(prevState => !prevState); // Set the state to show Solar page content
-    };
-    const handleRegisterButtonClick= ()=>{
-        window.location.href='/register';
+  const scrollToButtom = () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+    });
+  };
+
+  const [inputValue, setInputValue] = useState("");
+  const [isClicked, setIsClicked] = useState(false);
+  const [cost, setCost] = useState(0.2);
+  const [showSolarPage, setShowSolarPage] = useState(false);
+  const [showBatteryPage, setShowBatteryPage] = useState(false);
+  const [showGridPage, setShowGridPage] = useState(false);
+  const [showLoadPage, setShowLoadPage] = useState(false);
+  const [showGensetPage, setShowGensetPage] = useState(false);
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSubmit = async () => {
+    setIsClicked(!isClicked);
+
+    if (!inputValue) {
+      toast.error("Please enter a value for Genset cost");
+      return;
     }
 
-    useEffect(() => {
-        // Fetch data from your backend for 'gen_cost'
-        fetch('http://localhost:5005/gen_cost') // Replace with your Flask server URL
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            setCost(data); // Update the 'cost' state with the fetched data
-        })
-        .catch(error => {
-            console.error('Error fetching cost data:', error);
+    if (isNaN(inputValue) || parseInt(inputValue) > 4) {
+      toast.error("Genset cost can't exceed 5rs");
+      setInputValue("");
+    } else {
+      try {
+        await axios.post("http://localhost:5000/organization", {
+          data: inputValue,
         });
-    }, []);
+        setInputValue("");
+        console.log("List updated successfully");
+        toast.success("Genset cost updated successfully!");
+      } catch (error) {
+        setInputValue("");
+        console.error("Error updating list:", error);
+        toast.error("Error updating genset cost");
+      }
+    }
+  };
 
-    return ( 
+  const handleSolarButtonClick = () => {
+    setShowSolarPage((prevState) => !prevState);
+    setShowButton(true);
+  };
+  const handleLoadButtonClick = () => {
+    setShowLoadPage((prevState) => !prevState); 
+    setShowButton(true);
+  };
+  const handleBatteryButtonClick = () => {
+    setShowBatteryPage((prevState) => !prevState); 
+    setShowButton(true);
+  };
+  const handleGridButtonClick = () => {
+    setShowGridPage((prevState) => !prevState); 
+    setShowButton(true);
+  };
+  const handleGensetButtonClick = () => {
+    setShowGensetPage((prevState) => !prevState); 
+    setShowButton(true);
+  };
+  const handleRegisterButtonClick = () => {
+    window.location.href = "/register";
+  };
+
+  useEffect(() => {
+    fetch("http://localhost:5005/gen_cost")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setCost(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching cost data:", error);
+      });
+  }, []);
+
+  return (
+    <>
+      <div>
         <div>
-            {cost !== null ? (
-                <p>Cost from gen_cost endpoint: {cost}</p>
-            ) : (
-                <p>Loading cost...</p>
-            )}
-            <div className='buttoncontaineroo'>
-                <button className="solaro" onClick={handleSolarButtonClick}>Solar Energy</button>
-                <button className="batteryo" onClick={handleBatteryButtonClick}>Battery</button>
-                <button className="grido" onClick={handleGridButtonClick}>Grid</button>
-                <button className="generatoro" onClick={handleGensetButtonClick}>Generator</button>
-                <button className="loado" onClick={handleLoadButtonClick}>Load</button>
-                <button className="loado" onClick={handleRegisterButtonClick}>Register</button>
-            </div>
-            <div className='inputoo'>
-                <label>Update the cost of Genset:</label><br></br>
-                <input type="text" value={inputValue} onChange={handleInputChange} className="inputField" />
-                <button className={ isClicked?"bottonoo":"botton"} onClick={handleSubmit}>Update List</button>
-            </div>
-            {showSolarPage && <Solar />}
-            {showLoadPage && <Load />}
-            {showBatteryPage && <Battery />}
-            {showGridPage && <Grid />}
-            {showGensetPage && <Genset />}
+          {/* {cost !== null ? (
+                    <p>Cost from gen_cost endpoint: {cost}</p>
+                ) : (
+                    <p>Loading cost...</p>
+                )} */}
         </div>
-    );
-}
- 
+        <div className="inputoo">
+          <label>Update the cost of Genset: </label>
+          <input type="text" value={inputValue} placeholder={`current cost: ${cost}`} onChange={handleInputChange} className="inputField"/>
+          <button className={isClicked ? "bottonoo" : "botton"} onClick={handleSubmit}>Update</button>
+        </div>
+        <div>
+          <div className="row">
+            <div className="col-1">
+              <div className="buttoncontaineroo">
+                <div>
+                  {showButton && ( <button style={{ position: "fixed", bottom: "20px", right: "20px", padding: "10px", fontSize: "16px", borderRadius:"25px", }} onClick={scrollToButtom} ><FaCircleChevronDown size={30} /></button>
+                  )}
+                </div>
+                <button className="solaro" onClick={handleSolarButtonClick}> <TbSolarElectricity size={30} /> </button>
+                <button className="batteryo" onClick={handleBatteryButtonClick}> <FiBatteryCharging size={30} /></button>
+                <button className="grido" onClick={handleGridButtonClick}><AiFillThunderbolt size={30} /></button>
+                <button className="generatoro" onClick={handleGensetButtonClick}><GiPowerGenerator size={30} /></button>
+                <button className="loado" onClick={handleLoadButtonClick}><FaHouseChimneyCrack size={30} /></button>
+                <button className="loado" onClick={handleRegisterButtonClick}> <CgProfile /><FaPlus size={10} /></button>
+              </div>
+            </div>
+            <div className="col-2">
+              {showSolarPage && <Solar />}
+              {showLoadPage && <Load />}
+              {showBatteryPage && <Battery />}
+            </div>
+            <div className="col-3">
+              {showGridPage && <Grid />}
+              {showGensetPage && <Genset />}
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
 export default Organization;

@@ -44,8 +44,8 @@ return (
 
             <Route path='*' element={<Error/>}></Route>
           </Routes>
-        <Footer></Footer>
       </Router>
+        <Footer></Footer>
       <ToastContainer
         position="top-center"
         autoClose={2000}

@@ -60,8 +60,8 @@ function Consumer() {
         <br></br>  
       <div>
         <h1>Last 15 days Load Info</h1>
-        <div class="table-responsive">
-          <TableContainer component={Paper} style={{ maxHeight: 'none', overflow: 'auto' }}>
+        <div class="table-responsive" style={{ maxHeight: 'none',marginLeft:'200px',maxWidth:'1100px', overflow:'auto' }}>
+          <TableContainer component={Paper} >
             <Table aria-label="your table" class="table table-bordered">
               <TableHead>
                 <TableRow>
