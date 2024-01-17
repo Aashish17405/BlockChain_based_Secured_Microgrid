@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css'
+import './css/index.css'
 const Footer = () => {
   return (
     <footer className="footer">
@@ -11,4 +11,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Footer;

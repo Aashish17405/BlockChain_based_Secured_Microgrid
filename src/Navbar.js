@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import lg from './lpg.png';
+import lg from './images/lpg.png';
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('access_token') !== null);
