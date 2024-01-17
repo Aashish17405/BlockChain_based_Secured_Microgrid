@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function Solar() {
+function Battery() {
   const [imageSrc, setImageSrc] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
 
@@ -16,6 +16,12 @@ function Solar() {
         .then(blob => {
           const imageUrl = URL.createObjectURL(blob);
           setImageSrc(imageUrl);
+          setInterval(() => {
+            window.scrollTo({
+              top: document.body.scrollHeight,
+              behavior: "smooth",
+            });
+          }, 50);
         })
         .catch(error => {
           console.error('Error fetching image:', error);
@@ -25,8 +31,8 @@ function Solar() {
 
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
-  };
-
+    
+  };  
 
   return (
     <div>
@@ -45,4 +51,4 @@ function Solar() {
   );
 }
 
-export default Solar;
+export default Battery;

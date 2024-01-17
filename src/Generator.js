@@ -16,6 +16,12 @@ function Solar() {
         .then(blob => {
           const imageUrl = URL.createObjectURL(blob);
           setImageSrc(imageUrl);
+          setInterval(() => {
+            window.scrollTo({
+              top: document.body.scrollHeight,
+              behavior: "smooth",
+            });
+          }, 50);
         })
         .catch(error => {
           console.error('Error fetching image:', error);
