@@ -16,9 +16,9 @@ function Solar() {
         .then(blob => {
           const imageUrl = URL.createObjectURL(blob);
           setImageSrc(imageUrl);
-          setInterval(() => {
+          setTimeout(() => {
             window.scrollTo({
-              top: document.body.scrollHeight,
+              top: 200,
               behavior: "smooth",
             });
           }, 50);
@@ -30,13 +30,13 @@ function Solar() {
   }, [selectedOption]);
 
   const handleSelectChange = (event) => {
-    setSelectedOption(event.target.value); // Update selected option when changed
+    setSelectedOption(event.target.value);
   };
 
 
   return (
     <div>
-      <h1 style={{paddingLeft:'270px'}}>Solar Energy </h1>
+      <h1 style={{paddingLeft:'270px',align:"center"}}>Solar Energy</h1>
       <div>
         <label htmlFor="timeOptions" style={{paddingLeft:'270px'}}>Select Time:</label>
         <select id="timeOptions" value={selectedOption} onChange={handleSelectChange} style={{marginLeft:'270px'}}>

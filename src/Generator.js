@@ -16,9 +16,9 @@ function Solar() {
         .then(blob => {
           const imageUrl = URL.createObjectURL(blob);
           setImageSrc(imageUrl);
-          setInterval(() => {
+          setTimeout(() => {
             window.scrollTo({
-              top: document.body.scrollHeight,
+              top: 810,
               behavior: "smooth",
             });
           }, 50);

@@ -13,26 +13,14 @@ import { GiPowerGenerator } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
 import { FaPlus } from "react-icons/fa";
 import { FaHouseChimneyCrack } from "react-icons/fa6";
-import { FaCircleChevronDown } from "react-icons/fa6";
+import { IoIosArrowDropupCircle } from "react-icons/io";
 
 const Organization = () => {
   const [showButton, setShowButton] = useState(false);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setShowButton(document.body.scrollHeight > window.innerHeight);
-  //   };
-  //   handleResize();
-  //   window.addEventListener("resize", handleResize);
-
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
-
-  const scrollToButtom = () => {
+  const scrolltoTop = () => {
     window.scrollTo({
-      top: document.body.scrollHeight,
+      top: 120,
       behavior: "smooth",
     });
   };
@@ -48,6 +36,7 @@ const Organization = () => {
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
+    setCost(e.target.value);
   };
 
   const handleSubmit = async () => {
@@ -80,22 +69,52 @@ const Organization = () => {
   const handleSolarButtonClick = () => {
     setShowSolarPage((prevState) => !prevState);
     setShowButton(true);
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+      });
+    }, 50);
   };
   const handleLoadButtonClick = () => {
     setShowLoadPage((prevState) => !prevState); 
     setShowButton(true);
+    setTimeout(() => {
+      window.scrollTo({
+        top:800,
+        behavior: "smooth",
+      });
+    }, 50);
   };
   const handleBatteryButtonClick = () => {
     setShowBatteryPage((prevState) => !prevState); 
     setShowButton(true);
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+      });
+    }, 50);
   };
   const handleGridButtonClick = () => {
     setShowGridPage((prevState) => !prevState); 
     setShowButton(true);
+    setTimeout(() => {
+      window.scrollTo({
+        top: 120,
+        behavior: "smooth",
+      });
+    }, 50);
   };
   const handleGensetButtonClick = () => {
     setShowGensetPage((prevState) => !prevState); 
     setShowButton(true);
+    setTimeout(() => {
+      window.scrollTo({
+        top: 800,
+        behavior: "smooth",
+      });
+    }, 50);
   };
   const handleRegisterButtonClick = () => {
     window.location.href = "/register";
@@ -137,14 +156,14 @@ const Organization = () => {
             <div className="col-1">
               <div className="buttoncontaineroo">
                 <div>
-                  {showButton && ( <button style={{ position: "fixed", bottom: "20px", right: "20px", padding: "10px", fontSize: "16px", borderRadius:"25px", }} onClick={scrollToButtom} ><FaCircleChevronDown size={30} /></button>
+                  {showButton && (<button style={{position:"fixed",bottom:"20px",right:"20px",padding:"10px",fontSize:"16px",borderRadius:"35px",}}onClick={scrolltoTop} ><IoIosArrowDropupCircle size={35} /></button>
                   )}
                 </div>
                 <button className="solaro" onClick={handleSolarButtonClick}> <TbSolarElectricity size={30} /> </button>
                 <button className="batteryo" onClick={handleBatteryButtonClick}> <FiBatteryCharging size={30} /></button>
-                <button className="grido" onClick={handleGridButtonClick}><AiFillThunderbolt size={30} /></button>
-                <button className="generatoro" onClick={handleGensetButtonClick}><GiPowerGenerator size={30} /></button>
                 <button className="loado" onClick={handleLoadButtonClick}><FaHouseChimneyCrack size={30} /></button>
+                <button className="grido" onClick={handleGridButtonClick}><AiFillThunderbolt size={30} /></button>
+                <button className="generatoro" onClick={handleGensetButtonClick}><GiPowerGenerator size={30} /></button>               
                 <button className="loado" onClick={handleRegisterButtonClick}> <CgProfile /><FaPlus size={10} /></button>
               </div>
             </div>

@@ -321,7 +321,7 @@ color: #FFFFFF;
   margin-left: 3px;
 }
 
-.bottonoo {
+.bottonoo,.botton {
   padding: 5px 8px;
   background-color:#FF4F4F;
   color: white;
@@ -332,12 +332,8 @@ color: #FFFFFF;
   border-radius: 5px;
 }
 .botton{
-padding: 10px 20px;
-background-color:white;
-color: #FF4F4F;
-border: none;
-cursor: pointer;
-margin-top: 20px;
+  background-color:white;
+  color: #FF4F4F;
 }
 
 .solaro:hover, .batteryo:hover, .grido:hover, .generatoro:hover, .loado:hover {
@@ -444,7 +440,7 @@ padding-left: 10px;
 
  /* toplvl */
 .row{
-  margin-top: none;
+  margin-top:45px;
 }
 .col-1{
   padding-right: 20px;

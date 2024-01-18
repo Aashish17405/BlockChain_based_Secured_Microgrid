@@ -16,7 +16,7 @@ function Battery() {
         .then(blob => {
           const imageUrl = URL.createObjectURL(blob);
           setImageSrc(imageUrl);
-          setInterval(() => {
+          setTimeout(() => {
             window.scrollTo({
               top: document.body.scrollHeight,
               behavior: "smooth",

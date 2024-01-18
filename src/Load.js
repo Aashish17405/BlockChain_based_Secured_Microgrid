@@ -16,9 +16,9 @@ function Load() {
         .then(blob => {
           const imageUrl = URL.createObjectURL(blob);
           setImageSrc(imageUrl);
-          setInterval(() => {
+          setTimeout(() => {
             window.scrollTo({
-              top: document.body.scrollHeight,
+              top: 800,
               behavior: "smooth",
             });
           }, 50);

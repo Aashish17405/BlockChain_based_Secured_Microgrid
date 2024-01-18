@@ -60,14 +60,14 @@ function Consumer() {
         <br></br>  
       <div>
         <h1>Last 15 days Load Info</h1>
-        <div class="table-responsive" style={{ maxHeight: 'none',marginLeft:'200px',maxWidth:'1100px', overflow:'auto' }}>
+        <div className="table-responsive" style={{ maxHeight: 'none', marginLeft:'200px', maxWidth:'1100px', overflow:'auto' }}>
           <TableContainer component={Paper} >
-            <Table aria-label="your table" class="table table-bordered">
+            <Table aria-label="your table" className="table table-bordered">
               <TableHead>
                 <TableRow>
                   {tableData.length > 0 &&
                     tableData[0].map((header, index) => (
-                      <TableCell class="table-light" key={`header-${index}`} align="center">
+                      <TableCell style={{ fontFamily: 'Quicksand',fontWeight:"bold" }} className="table-light" key={`header-${index}`} align="center">
                         {header}
                       </TableCell>
                     ))}

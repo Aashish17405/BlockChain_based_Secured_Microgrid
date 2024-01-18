@@ -11,19 +11,15 @@ const Navbar = () => {
 
     if (confirmLogout) {
       if (localStorage.getItem('access_token') !== null) {
-        // Get user's current location (latitude and longitude)
         if ('geolocation' in navigator) {
           navigator.geolocation.getCurrentPosition(async (position) => {
             const { latitude, longitude } = position.coords;
-
-            // Prepare data to be sent to the Flask backend
             const logoutData = {
               latitude,
               longitude,
-              logoutTime: new Date().toISOString(), // You can format this date as needed
+              logoutTime: new Date().toISOString(),
             };
 
-            // Send the data to the Flask backend
             try {
               const response = await fetch('http://127.0.0.1:5000/logout', {
                 method: 'POST',
@@ -35,7 +31,6 @@ const Navbar = () => {
               });
 
               if (response.ok) {
-                // Clear local storage and update state
                 localStorage.removeItem('access_token');
                 localStorage.removeItem('role');
                 setIsLoggedIn(false);

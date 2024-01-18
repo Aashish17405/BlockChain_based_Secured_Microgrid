@@ -16,12 +16,12 @@ function Grid() {
         .then(blob => {
           const imageUrl = URL.createObjectURL(blob);
           setImageSrc(imageUrl)
-          setInterval(() => {
-            window.scrollTo({
-              top: document.body.scrollHeight,
-              behavior: "smooth",
-            });
-          }, 50);
+          // setTimeout(() => {
+          //   window.scrollTo({
+          //     top: document.body.scrollHeight,
+          //     behavior: "smooth",
+          //   });
+          // }, 50);
         })
         .catch(error => {
           console.error('Error fetching image:', error);
@@ -36,7 +36,7 @@ function Grid() {
 
   return (
     <div>
-      <h1 style={{paddingLeft:'270px'}}> Grid Graph</h1>
+      <h1 style={{paddingLeft:'270px'}}>Grid Graph</h1>
       <div>
         <label htmlFor="timeOptions" style={{paddingLeft:'270px'}}>Select Time:</label>
         <select id="timeOptions" value={selectedOption} onChange={handleSelectChange} style={{marginLeft:'270px'}}>

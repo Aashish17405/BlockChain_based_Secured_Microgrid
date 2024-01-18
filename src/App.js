@@ -7,7 +7,6 @@ import Navbar from './Navbar'
 import Organization from './Toplvl';
 import Login from './Login';
 import About from './About';
-import Footer from './Footer';
 import Middleman from './Middleman';
 import Consumer from './Consumer';
 import PrivateRoutes from './PrivateRoute';
@@ -17,6 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Register from './Register';
 import ProgressBar from './ProgressBar';
 import Error from './Error';
+import Practice from './Practice';
 function App() {
  const [isLoggedIn, setIsLoggedIn] = useState(false);
  const checkRole = (requiredRole) => {
@@ -32,6 +32,7 @@ return (
         <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
           <Routes>
             <Route path='/' element={<Home/>} />
+            <Route path='/pa' element={<Practice/>} />
             <Route path='/ContactUs' element={<ContactUs />} />
             <Route path='/About' element={<About />} />
             <Route element={<Login setIsLoggedIn={setIsLoggedIn} />} path="/login" exact />
@@ -45,7 +46,6 @@ return (
             <Route path='*' element={<Error/>}></Route>
           </Routes>
       </Router>
-        <Footer></Footer>
       <ToastContainer
         position="top-center"
         autoClose={2000}
