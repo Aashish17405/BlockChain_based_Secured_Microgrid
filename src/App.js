@@ -35,8 +35,8 @@ return (
             <Route path='/About' element={<About />} />
             <Route element={<Login setIsLoggedIn={setIsLoggedIn} />} path="/login" exact />
             <Route element={<PrivateRoutes />}>
-              <Route element={checkRole('toplevel') ? <Organization /> : <Navigate to="/login" />} path="/toplevel" exact />
-              <Route element={checkRole('middleman') ? <Middleman/> : <Navigate to="/login" />} path='/middleman' exact/>
+              <Route element={checkRole('toplevel') ? <Organization /> : <Navigate to="/login" />} path="/Power_System_Operators" exact />
+              <Route element={checkRole('middleman') ? <Middleman/> : <Navigate to="/login" />} path='/Data_Analysts' exact/>
               <Route element={checkRole('consumers') ? <Consumer/> : <Navigate to="/login" />} path='/consumers' exact/>
               <Route element={checkRole('toplevel') ? <Register/> : <Navigate to="/login" />} path='/register' exact/>
             </Route>
