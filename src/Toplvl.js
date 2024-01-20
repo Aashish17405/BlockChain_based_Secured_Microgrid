@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import Solar from "./Solar"; // Import the Solar component
+import Solar from "./Solar";
 import Load from "./Load";
 import Grid from "./Grid";
 import Battery from "./Battery";
@@ -13,11 +13,12 @@ import { GiPowerGenerator } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
 import { FaPlus } from "react-icons/fa";
 import { FaHouseChimneyCrack } from "react-icons/fa6";
-import { IoIosArrowDropupCircle } from "react-icons/io";
+import UseAnimations from "react-useanimations";
+import arrowUp from 'react-useanimations/lib/arrowUp';
+import Lottie from 'lottie-react';
+import animationData from './abc.json';
 
 const Organization = () => {
-  const [showButton, setShowButton] = useState(false);
-
   const scrolltoTop = () => {
     window.scrollTo({
       top: 120,
@@ -25,6 +26,8 @@ const Organization = () => {
     });
   };
 
+  const [showButton, setShowButton] = useState(false);
+  const [showLottie, setShowLottie] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isClicked, setIsClicked] = useState(false);
   const [cost, setCost] = useState(0.2);
@@ -136,6 +139,12 @@ const Organization = () => {
       });
   }, []);
 
+  useEffect(() => {
+    const shouldShowLottie = !showSolarPage && !showBatteryPage && !showLoadPage && !showGensetPage && !showGridPage;
+    setShowButton(!shouldShowLottie);
+    setShowLottie(shouldShowLottie);
+  }, [showSolarPage, showBatteryPage, showLoadPage, showGensetPage, showGridPage]);
+
   return (
     <>
       <div>
@@ -156,7 +165,7 @@ const Organization = () => {
             <div className="col-1">
               <div className="buttoncontaineroo">
                 <div>
-                  {showButton && (<button style={{position:"fixed",bottom:"20px",right:"20px",padding:"10px",fontSize:"16px",borderRadius:"35px",}}onClick={scrolltoTop} ><IoIosArrowDropupCircle size={35} /></button>
+                  {showButton && (<button style={{position:"fixed",bottom:"20px",right:"20px",padding:"10px",fontSize:"16px",borderRadius:"35px",}}onClick={scrolltoTop} ><UseAnimations animation={arrowUp} size={35} /></button>
                   )}
                 </div>
                 <button className="solaro" onClick={handleSolarButtonClick}> <TbSolarElectricity size={30} /> </button>
@@ -177,6 +186,14 @@ const Organization = () => {
               {showGensetPage && <Genset />}
             </div>
           </div>
+          {showLottie && (
+            <Lottie
+              animationData={animationData}
+              loop={true}
+              autoplay={true}
+              style={{ marginLeft: "600px", width: "350px", height: "400px" }}
+            />
+          )}
         </div>
       </div>
     </>

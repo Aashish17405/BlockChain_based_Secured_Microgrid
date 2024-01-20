@@ -1,13 +1,22 @@
-import React,{ useState } from "react";
+import React,{ useEffect,useState } from "react";
 
 const Practice = () => {
-    const [user,setUser]=useState('USER');
+    const [count,setCount]=useState(0);
+    const [greet,setGreet]=useState(0);
+    useEffect(()=>{
+        //the code that we want to run
+        console.log("Count is:",count);
+        return ()=>{
+            console.log('I am being cleaned UP!');
+        }
+    },[count]);
     return ( 
         <div>
-            <button onClick={()=>setUser("UESR")}>User</button>
-            <button onClick={()=>setUser("Badminton")}>Badminton</button>
-            <button onClick={()=>setUser("play")}>Play</button>
-            <h1>{user}</h1>
+            <button onClick={()=>setGreet(prevGreet=>prevGreet+10)}>hello</button><span>{greet}</span>
+            <button onClick={()=>setCount(prevCount=>prevCount-1)}>Decrement</button>
+            <button onClick={()=>setCount(prevCount=>prevCount+1)}>Increment</button>
+            <h1>{count}</h1>
+            
         </div>
      );
 }

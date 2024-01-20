@@ -1,36 +1,40 @@
 import './css/styles.css';
+import Footer from './Footer'
 
 const Home = () => {
     
     const videoUrl = 'https://www.youtube.com/embed/ATqA6rFWuiQ';
     return ( 
-        <div className='content'>
-        <div className="home">
-            <h1 style={{margin:"15px", paddingLeft:"41px"}}>Welcome to the Microgrid </h1>
-            <div>
-                <div className="box-1">
-                    <p className="matter">
-                    Grid Smart Tech is a pioneering company specializing in smart-controlled microgrids. They develop cutting-edge technology solutions that enable efficient and intelligent management of microgrids. Their innovative systems empower users to control and optimize energy distribution on a smaller scale, enhancing reliability and sustainability while offering customizable, smart-grid solutions for various energy needs. Grid Smart Tech's focus lies in creating advanced, responsive, and adaptable microgrid systems that revolutionize the way energy is managed and utilized.
-                    </p>
+        <div>
+            <div className='content'>
+            <div className="home">
+                <h1 style={{margin:"15px", paddingLeft:"41px"}}>Welcome to the Microgrid </h1>
+                <div>
+                    <div className="box-1">
+                        <p className="matter">
+                        Grid Smart Tech is a pioneering company specializing in smart-controlled microgrids. They develop cutting-edge technology solutions that enable efficient and intelligent management of microgrids. Their innovative systems empower users to control and optimize energy distribution on a smaller scale, enhancing reliability and sustainability while offering customizable, smart-grid solutions for various energy needs. Grid Smart Tech's focus lies in creating advanced, responsive, and adaptable microgrid systems that revolutionize the way energy is managed and utilized.
+                        </p>
+                    </div>
+                </div>
+                <div className="video-container">
+                    <iframe width="560" height="315" src={videoUrl} title="YouTube Video" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen // Enable fullscreen mode
+                    />
+                </div>
+                <div>
+                    <div className="quotes-container">
+                        <p className='quote'>
+                            "We owe it to ourselves and to the next generation to conserve the environment so that we can bequeath our children a sustainable world that benefits all." - A. P. J. Abdul Kalam
+                        </p>
+                        <p className='quote'>
+                            "Don't be reckless with electricity; use it wisely, conserve it for a brighter future." <br></br>- Chetan Bhagat
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div className="video-container">
-                <iframe width="560" height="315" src={videoUrl} title="YouTube Video" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen // Enable fullscreen mode
-                />
-            </div>
-            <div>
-                <div className="quotes-container">
-                    <p className='quote'>
-                        "We owe it to ourselves and to the next generation to conserve the environment so that we can bequeath our children a sustainable world that benefits all." - A. P. J. Abdul Kalam
-                    </p>
-                    <p className='quote'>
-                        "Don't be reckless with electricity; use it wisely, conserve it for a brighter future." <br></br>- Chetan Bhagat
-                    </p>
-                </div>
-            </div>
-            <div>
-                <div id="full">
+            
+        </div>
+        <div id="full">
                     <h1 id="hea">The Science behind  Microgrid</h1>
                     
                     <p id="simp">Through blockchain technology and our own innovative solutions, we've developed Exergy, a permissioned data platform<br />
@@ -100,9 +104,8 @@ const Home = () => {
                             availability via mobile app.<br />
                         </p>
                     </div>
-                </div>
-            </div>
-        </div>
+                    </div>
+                    <Footer/>
         </div>
     );
 } 

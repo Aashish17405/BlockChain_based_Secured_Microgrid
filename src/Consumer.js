@@ -4,20 +4,20 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 function Consumer() {
   const [billAmount, setBillAmount] = useState(null);
 
+  const fetchBillAmount = async () => {
+    try {
+      const response = await fetch(`http://localhost:5005/bill`);
+      const data = await response.json();
+      console.log('Data received from API:', data);
+      setBillAmount(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
   useEffect(() => {
-    const fetchBillAmount = async () => {
-      try {
-        const response = await fetch(`http://localhost:5005/bill`);
-        const data = await response.json();
-        console.log('Data received from API:', data);
-        setBillAmount(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    
-
     fetchBillAmount();
+    const intervalId = setInterval(fetchBillAmount, 30000);
+    return () => clearInterval(intervalId);
   }, []);
 
   const [graphImage, setGraphImage] = useState(null);

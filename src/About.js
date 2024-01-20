@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from './Footer';
 
 const About = () => {
   return (
@@ -21,7 +22,8 @@ const About = () => {
           Aashish - Full stack, Anjali - Designer, Saranya - Frontend, Rahul - Blockchain, Sai Krishna - Cybersecurity, Amog - Unknown
         </p>
       </section>
-    </div>
-    );
+      <Footer/>
+    </div>
+    );
   }
 export default About;
