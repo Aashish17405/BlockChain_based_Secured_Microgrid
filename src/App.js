@@ -16,7 +16,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import Register from './Register';
 import ProgressBar from './ProgressBar';
 import Error from './Error';
-import Practice from './Practice';
 function App() {
  const [isLoggedIn, setIsLoggedIn] = useState(false);
  const checkRole = (requiredRole) => {
@@ -32,7 +31,6 @@ return (
         <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
           <Routes>
             <Route path='/' element={<Home/>} />
-            <Route path='/pa' element={<Practice/>} />
             <Route path='/ContactUs' element={<ContactUs />} />
             <Route path='/About' element={<About />} />
             <Route element={<Login setIsLoggedIn={setIsLoggedIn} />} path="/login" exact />
