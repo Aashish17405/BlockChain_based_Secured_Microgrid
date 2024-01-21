@@ -370,7 +370,7 @@ z-index: 999; /* Ensure it's above other elements */
 width: 80%;
 max-width: 600px;
 margin-top: 20px;
-margin-left: 70px;
+margin-left: 60px;
 padding: 20px;
 box-shadow: 0px 0px 10px rgba(1, 1, 1, 0.3);
 border-radius: 5px;
@@ -399,25 +399,23 @@ margin-bottom: 5px;
 
 .reginput-field {
 padding: 10px;
-padding-left: 130px;
+padding-left: 15px;
 border: 1.5px solid #ddd;
 border-radius: 7px;
-margin-left: 15px;
+margin-left: 2px;
+text-align: left;
+width: 80%;
 }
 
 .regradio-group {
 margin-top: 30px;
 margin-bottom: 20px;
 display: flex;
-gap: 55px;
-}
-
-.regradio-input {
-margin-left: 5px;
+gap: 50px;
 }
 
 .register-button {
-margin-top: 20px;
+margin-top: 10px;
 padding: 10px 20px;
 border: none;
 border-radius: 5px;

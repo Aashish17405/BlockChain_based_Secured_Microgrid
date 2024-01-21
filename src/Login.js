@@ -191,7 +191,7 @@ const Login = ({ setIsLoggedIn }) => {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      toast.error('Error verifying OTP', { autoClose: 2000 });
+      toast.error('OTP verification failed', { autoClose: 2000 });
       console.error('Error verifying OTP:', error);
     }
   };

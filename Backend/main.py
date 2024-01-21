@@ -14,7 +14,7 @@ CORS(app)
 from twilio.rest import Client
 import random
 account_sid = 'AC7aee436a54cac70e58bde33a0015bfc3'
-auth_token = '73f356e2408711d18f612f1c6d0485a8'
+auth_token = '654a7ebb224d12491849e01ee22f27f3'
 twilio_phone_number = '+16174407457'
 client = Client(account_sid, auth_token)
 otp=0
@@ -37,10 +37,10 @@ def send_otp():
     #     )
     #     return jsonify({'message': 'OTP sent successfully'}), 200
     # except Exception as e:
-        # error_message = f'Failed to send OTP. Error: {str(e)}'
+    #     error_message = f'Failed to send OTP. Error: {str(e)}'
     #     app.logger.error(error_message)
     #     print(f'Error sending OTP: {error_message}')
-        # return jsonify({'message': error_message}), 500
+    #     return jsonify({'message': error_message}), 500
     return jsonify({'message': 'OTP sent successfully'}), 200
 
 @app.route('/verify_otp', methods=['POST'])
@@ -72,7 +72,7 @@ def login():
     ip_address = request.remote_addr
     user_agent1 = get_user_agent_info(user_agent)
 
-    collections = ['toplevel', 'consumers', 'middleman']
+    collections = ['Power_System_Operators', 'consumers', 'Data_Analysts']
     for collection_name in collections:
         users_collection = db[collection_name]
         user = users_collection.find_one({'username': username})

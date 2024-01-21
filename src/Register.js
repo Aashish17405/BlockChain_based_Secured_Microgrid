@@ -77,16 +77,16 @@ const RegisterForm = () => {
         <input type="password" id="confirmPassword" name="confirmPassword" autoComplete='off' value={formData.confirmPassword} onChange={handleInputChange} className="reginput-field"/>
       </div>
       <div >
-        <label ><h3 className='reguser'>User Type</h3></label>
+        <label ><h3 className='reguser' style={{marginBottom:"0px"}}>User Type</h3></label>
         <div className="regradio-group">
-          <label>
-            <input type="radio" name="userType" value="consumers" checked={formData.userType === 'consumers'} onChange={handleRadioChange} className="regradio-input"/> Consumers
+          <label >
+            <input type="radio" name="userType" value="consumers" onChange={handleRadioChange} className="regradio-input"/><br></br> Microgrid Consumers
           </label>
           <label>
-            <input type="radio" name="userType" value="toplevel" checked={formData.userType === 'toplevel'} onChange={handleRadioChange} className="regradio-input"/> Toplevel
+            <input type="radio" name="userType" value="Power_System_Operators" checked={formData.userType === 'Power_System_Operators'} onChange={handleRadioChange} className="regradio-input"/> <br></br>Power System Operators
           </label>
-          <label>
-            <input type="radio" name="userType" value="middleman" checked={formData.userType === 'middleman'} onChange={handleRadioChange} className="regradio-input"/> Middleman
+          <label style={{marginRight:"15px"}}>
+            <input type="radio" name="userType" value="Data_Analysts" checked={formData.userType === 'Data_Analysts'} onChange={handleRadioChange} className="regradio-input"/> <br></br>Data Analysts
           </label>
         </div>
       </div>
