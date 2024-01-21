@@ -1,70 +1,61 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Cyber security enabled smart control for grid connected microgrid
 
-## Available Scripts
+My innovation integrates a user-friendly website for seamless microgrid element access, a robust blockchain infrastructure for secure data storage and an advanced simulator to replicate and analyze the dynamic microgrid setup.
 
-In the project directory, you can run:
 
-### `npm start`
+## Aim
+Aim of the project is to develop a cybersecurity-enabled smart controller for grid- connected microgrids. The smart controller will play a crucial role in ensuring the secure and efficient operation of the microgrid by:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Securing communication between the smart controller and other components within the microgrid using robust encryption protocols.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Creating an access control mechanism to regulate user access based on roles and privileges.
 
-### `npm test`
+- Developing a logging system to track all activities.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Developing a user-friendly interface for the smart controller to enable efficient monitoring, configuration, and management of the microgrid's cybersecurity settings.
 
-### `npm run build`
+## Workflow
+![Flow chart](lpg.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech stack
+React: Front-end framework
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Flask: Back-end as a service
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+MongoDB: Database
 
-### `npm run eject`
+I used python to simulate the microgrid setup and a private blockchain based on Go Ethereum for secure and decentralized data storage and transactions.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Blockchain
+I used a private blockchain based on Go-Ethereum for secure and 
+decentralized data storage and transactions. These are the commands I used to create a blockchain using Go-Ethereum
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To create the nodes
+```bash
+geth --datadir "./data" account new
+```
 
-## Learn More
+To create bootnode
+```bash
+bootnode -genkey { NAME_OF_THE_KEY }.key
+```
+To start bootnode
+```bash
+bootnode -nodekey { KEY_NAME } -verbosity 7 -addr "127.0.0.1:30301"
+```
+To start Node1
+```bash
+geth --datadir "./data"  --port 30304 --bootnodes enode://{ YOUR_VALUE } --authrpc.port 8547 --ipcdisable --allow-insecure-unlock  --http --http.corsdomain="https://remix.ethereum.org" --http.api web3,eth,debug,personal,net --networkid { NETWORK_ID } --unlock { ADDRESS_NODE1 } --password { PASSWORD_FILE_NAME_EXTENSION }  --mine --miner.etherbase= { SIGNER_ADDRESS }
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To start node2
+```bash
+geth --datadir "./data"  --port 30306 --bootnodes enode://{ YOUR_VALUE }  -authrpc.port 8546 --networkid { NETWORK_ID } --unlock { ADDRESS_NODE2 } --password { PASSWORD_FILE_WITH_EXTENSION }
+```
+The components within the microgrid ecosystem dynamically engage with the smart contract embedded in the blockchain, facilitating secure and transparent transactions to persistently store data. This mechanism ensures the integrity of the stored information, guarding against any potential tampering or unauthorized alterations. The interaction is made using the [web3.py](https://web3py.readthedocs.io/en/stable/) python library.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Simulator
+I used python to simulate the microgrid setup. To mimic a smartcontroller of a microgrid, I used a flask server which takes inputs and sends the commands to the elements of the microgrid.All microgrid communication with the smart controller is secured through encryption, implemented using the [cryptography.fernet](https://cryptography.io/en/latest/fernet/) Python library. A key is used to create a "Fernet" cipher suite. There are functions encrypt_message and decrypt_message that use the cipher suite to encrypt and decrypt messages, respectively. Fernet is a simple symmetric encryption algorithm that provides a high level of security and is suitable for encrypting small pieces of data, such as tokens or messages. Important info about the performance of the elements is stored in the blockchain so that this info can't be tampered. To get this functionality I used [web3.py](https://web3py.readthedocs.io/en/stable/) Python library. [web3.py](https://web3py.readthedocs.io/en/stable/) allows us to interact with the Ethereum blockchain and build applications that leverage blockchain functionalities. 
