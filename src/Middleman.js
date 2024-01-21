@@ -12,7 +12,7 @@ import { FaHouseChimneyCrack } from "react-icons/fa6";
 import UseAnimations from "react-useanimations";
 import arrowUp from 'react-useanimations/lib/arrowUp';
 import Lottie from 'lottie-react';
-import animationData from './abc.json';
+import animationData from './images/analyst.json';
 
 const Middleman = () => {
   const [showButton, setShowButton] = useState(false);
@@ -128,44 +128,16 @@ const Middleman = () => {
               <div className="buttoncontaineroo" style={{ marginTop: "50px" }}>
                 <div>
                   {showButton && (
-                    <button
-                      style={{
-                        position: "fixed",
-                        bottom: "20px",
-                        right: "20px",
-                        padding: "10px",
-                        fontSize: "16px",
-                        borderRadius: "35px",
-                      }}
-                      onClick={scrolltoTop}
-                    >
-                      <UseAnimations animation={arrowUp} size={35} />
+                    <button style={{ position: "fixed", bottom: "20px", right: "20px", padding: "10px", fontSize: "16px", borderRadius: "35px", }}
+                      onClick={scrolltoTop}><UseAnimations animation={arrowUp} size={35} />
                     </button>
                   )}
                 </div>
-                <button className="solaro" onClick={handleSolarButtonClick}>
-                  {" "}
-                  <TbSolarElectricity size={30} />{" "}
-                </button>
-                <button
-                  className="batteryo"
-                  onClick={handleBatteryButtonClick}
-                >
-                  {" "}
-                  <FiBatteryCharging size={30} />
-                </button>
-                <button className="loado" onClick={handleLoadButtonClick}>
-                  <FaHouseChimneyCrack size={30} />
-                </button>
-                <button className="grido" onClick={handleGridButtonClick}>
-                  <AiFillThunderbolt size={30} />
-                </button>
-                <button
-                  className="generatoro"
-                  onClick={handleGensetButtonClick}
-                >
-                  <GiPowerGenerator size={30} />
-                </button>
+                <button className="solaro" onClick={handleSolarButtonClick}><TbSolarElectricity size={30} /></button>
+                <button className="batteryo" onClick={handleBatteryButtonClick}><FiBatteryCharging size={30} /></button>
+                <button className="loado" onClick={handleLoadButtonClick}><FaHouseChimneyCrack size={30} /></button>
+                <button className="grido" onClick={handleGridButtonClick}><AiFillThunderbolt size={30} /></button>
+                <button className="generatoro" onClick={handleGensetButtonClick}><GiPowerGenerator size={30} /></button>
               </div>
             </div>
             <div className="col-2">
@@ -179,12 +151,7 @@ const Middleman = () => {
             </div>
           </div>
           {showLottie && (
-            <Lottie
-              animationData={animationData}
-              loop={true}
-              autoplay={true}
-              style={{ marginLeft: "600px", width: "350px", height: "350px" }}
-            />
+            <Lottie animationData={animationData} loop={true} autoplay={true} style={{ marginLeft: "550px",marginTop:"30px", width: "450px", height: "400px" }}/>
           )}
         </div>
       </div>

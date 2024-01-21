@@ -16,7 +16,7 @@ import { FaHouseChimneyCrack } from "react-icons/fa6";
 import UseAnimations from "react-useanimations";
 import arrowUp from 'react-useanimations/lib/arrowUp';
 import Lottie from 'lottie-react';
-import animationData from './abc.json';
+import animationData from './images/operator.json';
 
 const Organization = () => {
   const scrolltoTop = () => {
