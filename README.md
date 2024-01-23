@@ -50,6 +50,7 @@ To run the backend server,just run the backend python code.
 
 ## Simulator
 We used python to simulate the micgrogrid setup. To mimic a smartcontroller of a microgrid,we used a flask server which takes inputs and sends the commands to the elements of the microgrid.All microgrid communication with the smart controller is secured through encryption,implemented using the [cryptography.fernet](https://cryptography.io/en/latest/fernet/) Python library. A key is used to create a "Fernet" cipher suite. There are functions encrypt_message and decrypt_message that use the cipher suite to encrypt and decrypt messages,respectively. Fernet is a simple symmetric encryption algorithm that provides a high level of security and is suitable for encrypting small pieces of data,such as tokens or messages. Important info about the performance of the elements is stored in the blockchain so that this info can't be tampered. To get this functionality we used [web3.py](https://web3py.readthedocs.io/en/stable/) Python library. web3.py allows us to interact with the Ethereum blockchain and build applications that leverage blockchain functionalities.
+
 ![IMG-20240123-WA0074](https://github.com/Aashish17405/cybersite/assets/140961189/3d885f7e-9de9-4e7b-b3d3-0f3d9aeecf1e)
 
 ## Blockchain
