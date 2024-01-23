@@ -81,7 +81,7 @@ geth --datadir "./data"  --port 30306 --bootnodes enode://{ YOUR_VALUE }  -authr
 ```
 The components within the microgrid ecosystem dynamically engage with the smart contract embedded in the blockchain,facilitating secure and transparent transactions to persistently store data. This mechanism ensures the integrity of the stored information,guarding against any potential tampering or unauthorized alterations. The interaction is made using the we3.py python library.
 
-##Team Members
+## Team Members
 [@Aashish17405](https://github.com/Aashish17405)
 [@kotterahul](https://github.com/kotterahul)
 [@leelasaranyaM](https://github.com/leelasaranyaM)
