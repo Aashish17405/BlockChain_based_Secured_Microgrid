@@ -18,7 +18,7 @@ Aim of the project is to develop a cybersecurity-enabled smart controller for gr
 ## Tech stack
 
 We used python to simulate the microgrid setup and a private blockchain based on Go Ethereum for secure and decentralized data storage and transactions.
-![IMG-20240123-WA0078](https://github.com/Aashish17405/cybersite/assets/140961189/aa781a62-27bb-4504-ae94-7be106f5fada)
+![Screenshot 2024-01-23 233152](https://github.com/Aashish17405/cybersite/assets/140961189/68ee9105-2d51-44f0-a353-46b51a912532)
 
 
 ## Website
@@ -51,10 +51,11 @@ To run the backend server,just run the backend python code.
 ## Simulator
 We used python to simulate the micgrogrid setup. To mimic a smartcontroller of a microgrid,we used a flask server which takes inputs and sends the commands to the elements of the microgrid.All microgrid communication with the smart controller is secured through encryption,implemented using the [cryptography.fernet](https://cryptography.io/en/latest/fernet/) Python library. A key is used to create a "Fernet" cipher suite. There are functions encrypt_message and decrypt_message that use the cipher suite to encrypt and decrypt messages,respectively. Fernet is a simple symmetric encryption algorithm that provides a high level of security and is suitable for encrypting small pieces of data,such as tokens or messages. Important info about the performance of the elements is stored in the blockchain so that this info can't be tampered. To get this functionality we used [web3.py](https://web3py.readthedocs.io/en/stable/) Python library. web3.py allows us to interact with the Ethereum blockchain and build applications that leverage blockchain functionalities.
 
-![IMG-20240123-WA0074](https://github.com/Aashish17405/cybersite/assets/140961189/3d885f7e-9de9-4e7b-b3d3-0f3d9aeecf1e)
+![Screenshot 2024-01-23 232829](https://github.com/Aashish17405/cybersite/assets/140961189/6d44b7de-d418-43b0-b0f9-146b73b25220)
+
 
 ## Blockchain
-we used a private blockchain based on Go-Ethereum for secure and 
+We used a private blockchain based on Go-Ethereum for secure and 
 decentralized data storage and transactions. These are the commands we used to create a blockchain using Go-Ethereum
 
 To create the nodes
@@ -81,7 +82,7 @@ geth --datadir "./data"  --port 30306 --bootnodes enode://{ YOUR_VALUE }  -authr
 ```
 The components within the microgrid ecosystem dynamically engage with the smart contract embedded in the blockchain,facilitating secure and transparent transactions to persistently store data. This mechanism ensures the integrity of the stored information,guarding against any potential tampering or unauthorized alterations. The interaction is made using the we3.py python library.
 
-## Team Members
+##  Team Members
 [@Aashish17405](https://github.com/Aashish17405)
 [@kotterahul](https://github.com/kotterahul)
 [@leelasaranyaM](https://github.com/leelasaranyaM)
