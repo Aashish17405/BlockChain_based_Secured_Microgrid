@@ -18,7 +18,9 @@ Aim of the project is to develop a cybersecurity-enabled smart controller for gr
 ## Tech stack
 
 We used python to simulate the microgrid setup and a private blockchain based on Go Ethereum for secure and decentralized data storage and transactions.
-![Screenshot 2024-01-23 233152](https://github.com/Aashish17405/cybersite/assets/140961189/68ee9105-2d51-44f0-a353-46b51a912532)
+
+![Screenshot 2024-01-23 233943](https://github.com/Aashish17405/cybersite/assets/140961189/73fae3d3-5207-48a2-8e77-0f93a3fb32f4)
+
 
 
 ## Website
