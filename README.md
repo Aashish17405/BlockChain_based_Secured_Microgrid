@@ -19,9 +19,7 @@ Aim of the project is to develop a cybersecurity-enabled smart controller for gr
 
 We used python to simulate the microgrid setup and a private blockchain based on Go Ethereum for secure and decentralized data storage and transactions.
 
-![Screenshot 2024-01-23 233943](https://github.com/Aashish17405/cybersite/assets/140961189/73fae3d3-5207-48a2-8e77-0f93a3fb32f4)
-
-
+![Screenshot 2024-01-23 234550](https://github.com/Aashish17405/cybersite/assets/140961189/1794602c-8581-4243-98c2-c83fae7f289c)
 
 ## Website
 The webiste provides three different user interfaces for three different hierachial roles namely Power system operator,Data analyst and microgrid consumer.The login page is common for everyone and they get redirected to their respective pages just as they enter their username,password and OTP which is sent to their registered mobile number.Anyone who wants to register as a new user should send a feedback through the ContactUs page.
