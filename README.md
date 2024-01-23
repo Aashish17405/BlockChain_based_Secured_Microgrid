@@ -19,7 +19,9 @@ Aim of the project is to develop a cybersecurity-enabled smart controller for gr
 
 We used python to simulate the microgrid setup and a private blockchain based on Go Ethereum for secure and decentralized data storage and transactions.
 
-![Screenshot 2024-01-23 234550](https://github.com/Aashish17405/cybersite/assets/140961189/1794602c-8581-4243-98c2-c83fae7f289c)
+![Screenshot 2024-01-23 233943](https://github.com/Aashish17405/cybersite/assets/140961189/73fae3d3-5207-48a2-8e77-0f93a3fb32f4)
+
+
 
 ## Website
 The webiste provides three different user interfaces for three different hierachial roles namely Power system operator,Data analyst and microgrid consumer.The login page is common for everyone and they get redirected to their respective pages just as they enter their username,password and OTP which is sent to their registered mobile number.Anyone who wants to register as a new user should send a feedback through the ContactUs page.
@@ -32,7 +34,8 @@ Data Analysts bring their analytical prowess to the platform,extracting valuable
 Microgrid Consumers:
 For Microgrid Consumers,the platform offers a user-friendly interface tailored to their consumption needs. They can easily access information related to their individual microgrid consumption patterns in the form of graph and table,enabling them to make informed decisions about their energy usage. The interface provides insights into energy consumption trends,empowering consumers to contribute to a more sustainable and efficient energy ecosystem.
 
-![IMG-20240123-WA0060](https://github.com/Aashish17405/cybersite/assets/140961189/75f248ae-2640-471f-9b7f-a6508d7ae32b)
+![Screenshot 2024-01-23 234550](https://github.com/Aashish17405/cybersite/assets/140961189/1794602c-8581-4243-98c2-c83fae7f289c)
+
 
 To create a new React application,run this command in the powershell or command prompt. Note that you need to have Nodejs installed in your pc.
 ```bash
