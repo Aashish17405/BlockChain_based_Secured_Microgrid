@@ -52,7 +52,7 @@ function Consumer() {
     <div>
       <h1>Graph for your house Load</h1><br></br>
       <div>
-        {billAmount !== null && <h5>Bill Amount for last hour: ₹{billAmount}</h5>}
+      {billAmount !== null && <h5>Bill Amount for last hour: ₹{Math.round(billAmount)}</h5>}
         </div>
       <div>
         {graphImage && (<img src={graphImage} alt="Bar Graph" />)}
