@@ -54,18 +54,22 @@ To run the backend server,just run the backend python code.
 ## Simulator
 We used python to simulate the micgrogrid setup. To mimic a smartcontroller of a microgrid,we used a flask server which takes inputs and sends the commands to the elements of the microgrid.All microgrid communication with the smart controller is secured through encryption,implemented using the [cryptography.fernet](https://cryptography.io/en/latest/fernet/) Python library. A key is used to create a "Fernet" cipher suite. There are functions encrypt_message and decrypt_message that use the cipher suite to encrypt and decrypt messages,respectively. Fernet is a simple symmetric encryption algorithm that provides a high level of security and is suitable for encrypting small pieces of data,such as tokens or messages. Important info about the performance of the elements is stored in the blockchain so that this info can't be tampered. To get this functionality we used [web3.py](https://web3py.readthedocs.io/en/stable/) Python library. web3.py allows us to interact with the Ethereum blockchain and build applications that leverage blockchain functionalities.
 
+To install the libraries in python run this command in the command prompt or powershell.
+```bash
+pip install {library_name}
+```
+
 ![Screenshot 2024-01-23 232829](https://github.com/Aashish17405/cybersite/assets/140961189/6d44b7de-d418-43b0-b0f9-146b73b25220)
 
 
 ## Blockchain
 We used a private blockchain based on Go-Ethereum for secure and 
-decentralized data storage and transactions. These are the commands we used to create a blockchain using Go-Ethereum
+decentralized data storage and transactions. These are the commands we used to create a blockchain using Go-Ethereum. Note  that [Geth](https://geth.ethereum.org/docs/getting-started/installing-geth) should be installed to run these commands in your pc.
 
 To create the nodes
 ```bash
 geth --datadir "./data" account new
 ```
-
 To create bootnode
 ```bash
 bootnode -genkey { NAME_OF_THE_KEY }.key
@@ -85,10 +89,10 @@ geth --datadir "./data"  --port 30306 --bootnodes enode://{ YOUR_VALUE }  -authr
 ```
 The components within the microgrid ecosystem dynamically engage with the smart contract embedded in the blockchain,facilitating secure and transparent transactions to persistently store data. This mechanism ensures the integrity of the stored information,guarding against any potential tampering or unauthorized alterations. The interaction is made using the we3.py python library.
 
-##  Team Members
-[@Aashish17405](https://github.com/Aashish17405)
-[@kotterahul](https://github.com/kotterahul)
-[@leelasaranyaM](https://github.com/leelasaranyaM)
-[@anjalikavade](https://github.com/anjalikavade)
-[@Ahealier](https://github.com/heailer)
-[@Saikrishna200501](https://github.com/Saikrishna200501)
+## Authors
+Aashish [@Aashish17405](https://github.com/Aashish17405)
+Rahul [@kotterahul](https://github.com/kotterahul)
+Saranya [@leelasaranyaM](https://github.com/leelasaranyaM)
+Anjali [@anjalikavade](https://github.com/anjalikavade)
+Amog [@Ahealier](https://github.com/heailer)
+Sai Krishna [@Saikrishna200501](https://github.com/Saikrishna200501)
