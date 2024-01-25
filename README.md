@@ -91,8 +91,13 @@ The components within the microgrid ecosystem dynamically engage with the smart 
 
 ## Authors
 Aashish [@Aashish17405](https://github.com/Aashish17405)
+
 Rahul [@kotterahul](https://github.com/kotterahul)
+
 Saranya [@leelasaranyaM](https://github.com/leelasaranyaM)
+
 Anjali [@anjalikavade](https://github.com/anjalikavade)
+
 Amog [@Ahealier](https://github.com/heailer)
+
 Sai Krishna [@Saikrishna200501](https://github.com/Saikrishna200501)
