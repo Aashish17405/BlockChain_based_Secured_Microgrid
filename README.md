@@ -16,10 +16,15 @@ Aim of the project is to develop a cybersecurity-enabled smart controller for gr
 
 ## Prerequisites
 
-#### Blockchain
-Install [Geth](https://geth.ethereum.org/docs/getting-started/installing-geth) to run these commands in your pc.
+Before running the project, ensure you have the following prerequisites in place:
 
-To create the nodes
+Install Geth: Visit [Geth](https://geth.ethereum.org/docs/getting-started/installing-geth) Installation and follow the instructions to install Geth on your PC.
+Install Nodejs: Visit [Nodejs](https://nodejs.org/en/download) Installation and follow the instructions to install Nodejs on your PC.
+Create an Account in [Twilio](https://www.twilio.com/login) for the OTP verification feature. This usually includes your email address, password, and account type.
+
+### Commands to run the project
+#### Blockchain
+To create nodes, use the following command:
 ```bash
 geth --datadir "./data" account new
 ```
@@ -112,7 +117,7 @@ We used python to simulate the micgrogrid setup. To mimic a smartcontroller of a
 ![Screenshot 2024-01-23 232829](https://github.com/Aashish17405/cybersite/assets/140961189/6d44b7de-d418-43b0-b0f9-146b73b25220)
 
 
-## Authors
+## Contributors
 Aashish [@Aashish17405](https://github.com/Aashish17405)
 
 Rahul [@kotterahul](https://github.com/kotterahul)
