@@ -240,33 +240,32 @@ def generate_bar_graph():
     call=contract.functions.show_load().call()
     for i in range(len(call)):
         call[i]=int(call[i])
-    time_array=call
-    start = len(time_array) - (24 * 16)
+    start = len(call) - (24 * 15)
     if start < 0:
         start = 0
-
     day_wise_load = []
-    s = start
-    for i in range(start, len(time_array)):
-        if (i - start) % 24 == 0 and i != start:
-            daily_sum = sum(time_array[s:i])
-            day_wise_load.append(daily_sum)
-            s = i
-    
+    for day in range(start // 24 + 1, start // 24 + 16):
+        start_idx = (day - 1) * 24
+        end_idx = day * 24
+        row =[int(value) for value in call[start_idx:end_idx]]
+        # print(row)
+        row_sum = sum(row[0:])
+        day_wise_load.append(row_sum)
+    bar_width = 0.6
+    plt.figure(figsize=(14, 3))
+    plt.bar(range(1,len(day_wise_load)+1), day_wise_load,width=bar_width,color='#FF4F4F')
+    for i, v in enumerate(day_wise_load):
+        plt.text(i + 1, v, str(v), ha='center', va='bottom')
+    plt.gca().spines['top'].set_visible(False)
+    plt.gca().spines['right'].set_visible(False)    
     x_labels = list(range(1, len(day_wise_load) + 1))
     plt.xlabel('Days')
     plt.ylabel('Load')
-    plt.ylim(4000,7500)
-    for i, v in enumerate(day_wise_load):
-        plt.text(i + 1, v, str(v), ha='center', va='bottom')
+    plt.ylim(4000,7000)
+    plt.tight_layout()
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.xticks(range(1, len(day_wise_load) + 1), x_labels)
-    plt.gca().spines['right'].set_visible(False)
-    plt.gca().spines['top'].set_visible(False)
-    bar_width = 0.6
-    # plt.figure(figsize=(15, 3))
-    plt.bar(range(1,len(day_wise_load)+1), day_wise_load,width=bar_width,color='#FF4F4F')
-    
+
     buffer = io.BytesIO()
     plt.savefig(buffer, format='png')
     buffer.seek(0)
