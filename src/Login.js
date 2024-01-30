@@ -199,7 +199,7 @@ const Login = ({ setIsLoggedIn }) => {
   return (
     
     <div className="login-box">
-      <h2 className="log">Send OTP</h2>
+      <h2 className="log">Login</h2>
       <form onSubmit={handleLogin}>
         <div>
           <label htmlFor="username" className="form-label">
@@ -222,7 +222,7 @@ const Login = ({ setIsLoggedIn }) => {
           </div>
         )}
         <div className="button-container">
-          <input type="submit" value={otpSent ? 'Verify OTP' : 'Login'} disabled={isDisabled} />
+          <input type="submit" value={otpSent ? 'Verify OTP' : 'Send OTP'} disabled={isDisabled} />
         </div>
       </form>
       {isDisabled && <CountdownTimer initialSeconds={Boolean(remainingTime)? Math.round(remainingTime / 1000):30} />}

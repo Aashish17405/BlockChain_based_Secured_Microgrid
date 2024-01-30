@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
-
+import Footer from './Footer'
 function Consumer() {
   const [billAmount, setBillAmount] = useState(null);
 
@@ -88,6 +88,7 @@ function Consumer() {
           </TableContainer>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }
