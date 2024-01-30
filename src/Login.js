@@ -199,7 +199,7 @@ const Login = ({ setIsLoggedIn }) => {
   return (
     
     <div className="login-box">
-      <h2 className="log">Login</h2>
+      <h2 className="log">Send OTP</h2>
       <form onSubmit={handleLogin}>
         <div>
           <label htmlFor="username" className="form-label">
