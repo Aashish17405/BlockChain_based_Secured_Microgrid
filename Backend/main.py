@@ -41,6 +41,7 @@ def send_otp():
         app.logger.error(error_message)
         print(f'Error sending OTP: {error_message}')
         return jsonify({'message': error_message}), 500
+    # return jsonify({'message': 'OTP sent successfully'}), 200
 
 @app.route('/verify_otp', methods=['POST'])
 def verify_otp():
