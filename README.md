@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Cyber security enabled smart control for grid connected microgrid
 
@@ -129,3 +130,7 @@ Anjali [@anjalikavade](https://github.com/anjalikavade)
 Amog [@Ahealier](https://github.com/heailer)
 
 Sai Krishna [@Saikrishna200501](https://github.com/Saikrishna200501)
+=======
+# BlockchainBasedSecureMicrogrid-G65-PS23
+Blockchain based Cyber-secure Microgrid implementation
+>>>>>>> upstream/main
