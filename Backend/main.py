@@ -33,7 +33,7 @@ def send_otp():
         message = client.messages.create(
             body=f'Your OTP is: {otp}',
             from_=twilio_phone_number,
-            to='+919381150341'
+            to='<Your_mobile_number>'
         )
         return jsonify({'message': 'OTP sent successfully'}), 200
     except Exception as e:
