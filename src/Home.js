@@ -37,9 +37,9 @@ const Home = () => {
         <div id="full">
                     <h1 id="hea">The Science behind  Microgrid</h1>
                     
-                    <p id="simp">Through blockchain technology and our own innovative solutions, we've developed Exergy, a permissioned data platform<br />
+                    <p id="simp">Through blockchain technology and our own innovative solutions, we've developed Grid Smart Tech, a permissioned data platform<br />
                     that creates a localized energy marketplace for transacting energy across existing grid infrastructure.<br />
-                    We're just beginning to uncover the potential of the Exergy platform to influence the energy model of the future, and<br />
+                    We're just beginning to uncover the potential of the Grid Smart Tech platform to influence the energy model of the future, and<br />
                     already the possibilities seem endless.</p><br/>
 
                     <div id="pics">
@@ -52,7 +52,7 @@ const Home = () => {
                     <div className="para-container">
                         <p className="para">
                             <span className="first-line">Peer-to-Peer</span><br />
-                            On the Exergy platform,<br />
+                            On the Grid Smart Tech platform,<br />
                             prosumers - generating<br />
                             energy through their own<br />
                             renewable sources - can<br />
